@@ -52,6 +52,7 @@ const Wrapper = (props: WrapperProps) => {
   }, [dispatch, authLoaded, user]);
 
   useEffect(() => {
+    console.log("MESSAGING");
     const unsubscribe = messaging().onMessage(async (m) => {
       const { notification } = m;
       const title = notification?.title ?? "New Notification";

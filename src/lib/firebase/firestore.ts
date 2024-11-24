@@ -104,17 +104,17 @@ export const getUsersBy = async (params?: {
   ids?: string[];
   keyword?: string;
   role?: UserRoleSchema;
-  notRole?: UserRoleSchema;
+  roles?: UserRoleSchema[];
 }) => {
-  const { ids, keyword, role, notRole } = params ?? {};
+  const { ids, keyword, role, roles } = params ?? {};
 
   let query = USERS_COLLECTION.where("id", "!=", "");
 
   if (ids && ids.length > 0) query = query.where("id", "in", ids);
   if (keyword && keyword.length > 0)
     query = query.where("keywords", "array-contains", keyword);
-  if (role && !notRole) query = query.where("role", "==", role);
-  if (notRole && !role) query = query.where("role", "!=", notRole);
+  if (role && !roles) query = query.where("role", "==", role);
+  if (roles && roles.length > 0) query = query.where("role", "in", roles);
 
   const result = await query.get();
 
