@@ -62,10 +62,19 @@ const ReportScreen = () => {
       });
 
       await sendNotification({
-        to: "all",
-        from: userData.id,
+        receiver: type,
+        sender: userData.id,
         title: "Attention",
         body: "Possible emergency, please be prepared.",
+        type: "report",
+        typeId: reportId,
+      });
+
+      await sendNotification({
+        receiver: "relatives",
+        sender: userData.id,
+        title: "Attention",
+        body: `Your relative ${userData.name} has a ${type} emergency. Plase be advised.`,
         type: "report",
         typeId: reportId,
       });

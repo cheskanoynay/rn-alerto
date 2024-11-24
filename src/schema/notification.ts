@@ -6,8 +6,8 @@ export const notificationSchema = z.object({
   id: z.string(),
   type: z.enum(["report", "message"]),
   typeId: z.string(),
-  from: z.string(),
-  to: z.string(),
+  sender: z.string(),
+  receiver: z.string(),
   title: z.string(),
   body: z.string(),
   isRead: z.string().array(),
@@ -19,8 +19,8 @@ export type NotificationSchema = z.infer<typeof notificationSchema>;
 export const sendNotificationSchema = notificationSchema.pick({
   type: true,
   typeId: true,
-  from: true,
-  to: true,
+  sender: true,
+  receiver: true,
   title: true,
   body: true,
 });
