@@ -3,6 +3,7 @@ import { StackActions, useNavigation } from "@react-navigation/native";
 import { LucideLock, LucideMail, LucideUser2 } from "lucide-react-native";
 import { Alert, Text, View } from "react-native";
 
+import { Background } from "~/components/background";
 import { Button } from "~/components/button";
 import { Input } from "~/components/input";
 import { Logo } from "~/components/logo";
@@ -10,7 +11,6 @@ import { tw } from "~/lib/tailwind";
 import { useAppDispatch, useAppSelector } from "~/store";
 import { register } from "~/store/auth-slice";
 import { getError } from "~/utils/error";
-import { Background } from "~/components/background";
 
 const RegistrationScreen = () => {
   const [name, setName] = useState<string>("");
@@ -25,8 +25,10 @@ const RegistrationScreen = () => {
     try {
       await dispatch(register({ email, password, name })).unwrap();
 
-      StackActions.popToTop();
-      navigation.navigate("User", { screen: "Home" });
+      Alert.alert("Success", "Please wait for admin to confirm you account.");
+
+      // StackActions.popToTop();
+      // navigation.navigate("User", { screen: "Home" });
     } catch (error) {
       const err = getError(error, "Registration failed.");
 
