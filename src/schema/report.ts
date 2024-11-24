@@ -5,7 +5,7 @@ import { timestampDateSchema } from "./custom";
 export const reportTypeSchema = z.enum(["video", "voice", "message"]);
 export type ReportTypeSchema = z.infer<typeof reportTypeSchema>;
 
-export const reportStatusSchema = z.enum(["pending", "responded", "done"]);
+export const reportStatusSchema = z.enum(["pending", "responded"]);
 export type ReportStatusSchema = z.infer<typeof reportStatusSchema>;
 
 export const reportAgencySchema = z.enum(["police", "medical", "fire"]);

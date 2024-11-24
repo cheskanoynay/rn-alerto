@@ -175,6 +175,25 @@ export const createReport = async (
   }
 };
 
+export const updateReport = async (
+  id: string,
+  data: Partial<Omit<ReportSchema, "id" | "dateCreated" | "dateUpdated">>,
+) => {
+  try {
+    await REPORTS_COLLECTION.doc(id).update({
+      ...data,
+      dateUpdated: new Date(),
+    });
+
+    return true;
+  } catch (error) {
+    console.log("updateReport error:", error);
+    const err = getError(error, "Failed updating report.");
+
+    throw err;
+  }
+};
+
 export const getReportsByRealtime =
   (params?: {
     userId?: string;
