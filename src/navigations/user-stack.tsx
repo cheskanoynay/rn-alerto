@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
-import { StackActions, useNavigation } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  CompositeScreenProps,
+  StackActions,
+  useNavigation,
+} from "@react-navigation/native";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 
+import { ResponderTypeSchema } from "~/schema/user";
 import { AddRelativesScreen } from "~/screens/user/add-relatives";
 import { AudioCallScreen } from "~/screens/user/audio-call";
 import { HistoryScreen } from "~/screens/user/history";
@@ -17,7 +25,30 @@ import { ReportScreen } from "~/screens/user/report";
 import { TermsOfServiceScreen } from "~/screens/user/terms-of-service";
 import { VideoCallScreen } from "~/screens/user/video-call";
 import { useAppSelector } from "~/store";
-import { UserStackParamList } from "./types";
+import { RootStackParamList } from "./root-stack";
+import { RootStackScreenProps } from "./types";
+
+export type UserStackParamList = {
+  Home: undefined;
+  Report: { type: Exclude<ResponderTypeSchema, ""> };
+  Messages: { id: string; type: Exclude<ResponderTypeSchema, ""> };
+  VideoCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
+  AudioCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
+  Notifications: undefined;
+  History: undefined;
+  PreRegistration: undefined;
+  Registration: undefined;
+  Login: undefined;
+  TermsOfService: undefined;
+  Profile: undefined;
+  Relatives: undefined;
+  AddRelatives: undefined;
+};
+export type UserStackScreenProps<T extends keyof UserStackParamList> =
+  CompositeScreenProps<
+    StackScreenProps<UserStackParamList, T>,
+    RootStackScreenProps<keyof RootStackParamList>
+  >;
 
 const Stack = createStackNavigator<UserStackParamList>();
 

@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
-import { StackActions, useNavigation } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  CompositeScreenProps,
+  StackActions,
+  useNavigation,
+} from "@react-navigation/native";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 
 import { ResponderHomeScreen } from "~/screens/responder/home";
 import { LoginScreen } from "~/screens/responder/login";
@@ -9,7 +16,27 @@ import { NotificationsScreen } from "~/screens/responder/notifications";
 import { ProfileScreen } from "~/screens/responder/profile";
 import { TermsOfServiceScreen } from "~/screens/responder/terms-of-service";
 import { useAppSelector } from "~/store";
-import { ResponderStackParamList } from "./types";
+import { RootStackParamList, RootStackScreenProps } from "./root-stack";
+
+export type ResponderStackParamList = {
+  Home: undefined;
+  Login: undefined;
+  Messages: { id: string };
+  TermsOfService: undefined;
+  Profile: undefined;
+  Notifications: undefined;
+};
+export type ResponderStackSreenProps<T extends keyof ResponderStackParamList> =
+  CompositeScreenProps<
+    StackScreenProps<ResponderStackParamList, T>,
+    RootStackScreenProps<keyof RootStackParamList>
+  >;
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
 
 const Stack = createStackNavigator<ResponderStackParamList>();
 

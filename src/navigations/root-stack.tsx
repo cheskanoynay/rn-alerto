@@ -1,12 +1,26 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { NavigatorScreenParams } from "@react-navigation/native";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 
 import { HomeScreen } from "~/screens/home";
 import { SplashScreen } from "~/screens/splash";
 import { useAppSelector } from "~/store";
-import ResponderNavigation from "./responder-stack";
-import { RootStackParamList } from "./types";
-import UserNavigation from "./user-stack";
+import ResponderNavigation, {
+  ResponderStackParamList,
+} from "./responder-stack";
+import UserNavigation, { UserStackParamList } from "./user-stack";
+
+export type RootStackParamList = {
+  Splash: undefined;
+  Home: undefined;
+  User: NavigatorScreenParams<UserStackParamList>;
+  Responders: NavigatorScreenParams<ResponderStackParamList>;
+};
+export type RootStackScreenProps<T extends keyof RootStackParamList> =
+  StackScreenProps<RootStackParamList, T>;
 
 const Stack = createStackNavigator<RootStackParamList>();
 

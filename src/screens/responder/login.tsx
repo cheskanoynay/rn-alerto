@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { ComponentRef, useRef, useState } from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { LucideLock, LucideMail } from "lucide-react-native";
 import { Alert, View } from "react-native";
+import Recaptcha, { RecaptchaRef } from "react-native-recaptcha-that-works";
 
 import { Background } from "~/components/background";
 import { Button } from "~/components/button";
@@ -16,11 +17,13 @@ const LoginScreen = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const recaptcha = useRef<RecaptchaRef>(null);
+
   const navigation = useNavigation();
   const { loading } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
 
-  const handleLogin = async () => {
+  const handleRecaptchaVerify = async () => {
     try {
       await dispatch(login({ email, password, role: "responder" })).unwrap();
 
@@ -31,6 +34,14 @@ const LoginScreen = () => {
 
       Alert.alert("Failed", err.message);
     }
+  };
+
+  const handleRecaptchaExpire = () => {
+    Alert.alert("Failed", "Recaptcha verification failed.");
+  };
+
+  const handleLogin = async () => {
+    recaptcha.current?.open();
   };
 
   return (
@@ -56,6 +67,15 @@ const LoginScreen = () => {
           secureTextEntry
         />
       </View>
+
+      <Recaptcha
+        ref={recaptcha}
+        siteKey="6LeLJbkqAAAAACsIaDpWFv_lLn2Nes0c8mXEkD91"
+        baseUrl="https://next-alerto.vercel.app/login"
+        onVerify={handleRecaptchaVerify}
+        onExpire={handleRecaptchaExpire}
+        size="invisible"
+      />
 
       <Button loading={loading} onPress={handleLogin}>
         Login
