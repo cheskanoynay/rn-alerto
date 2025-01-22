@@ -16,12 +16,12 @@ import { useMicrophonePermission } from "react-native-vision-camera";
 
 import { UserLayout } from "~/components/layout/user-layout";
 import { tw } from "~/lib/tailwind";
-import { UserStackScreenProps } from "~/navigations/types";
+import { UserStackScreenProps } from "~/navigations/user-stack";
 
 const reportText = {
-  police: "Calape PNP",
-  medical: "Calape Hospital",
-  fire: "Calape BFP",
+  police: "PNP",
+  medical: "NDRRMC",
+  fire: "BFP",
   "": "",
 };
 

@@ -6,7 +6,7 @@ import { tw } from "~/lib/tailwind";
 
 const TermsOfServiceScreen = () => {
   return (
-    <Background style={tw`gap-8 p-8`}>
+    <Background style={tw`gap-8 p-4`}>
       <View style={tw`flex-row items-center gap-2`}>
         <Image
           source={require("~/assets/images/logo.png")}

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { LucideLock, LucideMail } from "lucide-react-native";
-import { Alert, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import Recaptcha, { RecaptchaRef } from "react-native-recaptcha-that-works";
 
 import { Background } from "~/components/background";
@@ -45,27 +45,40 @@ const LoginScreen = () => {
   };
 
   return (
-    <Background style={tw`items-center justify-center gap-8 p-8`}>
-      <Logo />
+    <Background
+      style={tw`items-center justify-center gap-8 p-4`}
+      gradient={false}
+    >
+      <View style={tw`flex-1 items-center justify-center gap-8`}>
+        <Logo />
+      </View>
 
       <View style={tw`w-full gap-4`}>
-        <Input
-          label="Email"
-          wrapperStyle={tw`w-full`}
-          icon={LucideMail}
-          keyboardType="email-address"
-          onChangeText={setEmail}
-          value={email}
-        />
+        <View style={tw`gap-2`}>
+          <Input
+            label="Email"
+            wrapperStyle={tw`w-full`}
+            icon={LucideMail}
+            keyboardType="email-address"
+            onChangeText={setEmail}
+            value={email}
+            placeholder="Enter email address"
+          />
 
-        <Input
-          label="Password"
-          wrapperStyle={tw`w-full`}
-          icon={LucideLock}
-          onChangeText={setPassword}
-          value={password}
-          secureTextEntry
-        />
+          <Input
+            label="Password"
+            wrapperStyle={tw`w-full`}
+            icon={LucideLock}
+            onChangeText={setPassword}
+            value={password}
+            secureTextEntry
+            placeholder="Enter password"
+          />
+        </View>
+
+        <Button loading={loading} onPress={handleLogin}>
+          Login as User
+        </Button>
       </View>
 
       <Recaptcha
@@ -76,10 +89,6 @@ const LoginScreen = () => {
         onExpire={handleRecaptchaExpire}
         size="invisible"
       />
-
-      <Button loading={loading} onPress={handleLogin}>
-        Login
-      </Button>
     </Background>
   );
 };

@@ -55,7 +55,7 @@ const HistoryScreen = () => {
         {sortedReports.map((r) => (
           <TouchableOpacity
             key={`report-${r.id}`}
-            style={tw`h-14 flex-row items-center justify-between rounded-lg border px-4 py-2`}
+            style={tw`h-14 flex-row items-center justify-between rounded-2xl border px-4 py-2`}
             onPress={() => handleRedirect(r.id, r.type, r.agency)}
           >
             <View style={tw`flex-1`}>

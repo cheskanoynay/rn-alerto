@@ -13,10 +13,15 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Background style={tw`items-center justify-center gap-8 p-8`}>
-      <Logo />
+    <Background
+      style={tw`items-center justify-between gap-8 p-4`}
+      gradient={false}
+    >
+      <View style={tw`items-center justify-center gap-8 flex-1`}>
+        <Logo />
+      </View>
 
-      <View style={tw`flex-col items-center gap-4`}>
+      <View style={tw`w-full flex-col items-center gap-4`}>
         {userData ? (
           <>
             <Text style={tw`text-2xl`}>
@@ -27,8 +32,9 @@ const HomeScreen = () => {
             <Button>Logout</Button>
           </>
         ) : (
-          <>
+          <View style={tw`w-full gap-2`}>
             <Button
+              wrapperStyle={tw`w-full`}
               onPress={() =>
                 navigation.navigate("Responders", { screen: "Login" })
               }
@@ -36,11 +42,12 @@ const HomeScreen = () => {
               I'm a Responder
             </Button>
             <Button
+              wrapperStyle={tw`w-full`}
               onPress={() => navigation.navigate("User", { screen: "Home" })}
             >
               I'm a User
             </Button>
-          </>
+          </View>
         )}
       </View>
     </Background>

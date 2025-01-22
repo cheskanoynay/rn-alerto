@@ -1,11 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import {
-  LucideFlame,
-  LucideShieldPlus,
-  LucideSiren,
-} from "lucide-react-native";
-import { Pressable, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 
 import { UserLayout } from "~/components/layout/user-layout";
 import { Logo } from "~/components/logo";
@@ -36,7 +31,10 @@ const UserHomeScreen = () => {
                 })
               }
             >
-              <LucideSiren size={32} style={tw`text-persian-red-600`} />
+              <Image
+                source={require("~/assets/images/pnp.png")}
+                style={tw`h-14 w-14`}
+              />
             </Pressable>
           </View>
 
@@ -58,7 +56,10 @@ const UserHomeScreen = () => {
                 })
               }
             >
-              <LucideShieldPlus size={32} style={tw`text-persian-red-600`} />
+              <Image
+                source={require("~/assets/images/ndrrmc.png")}
+                style={tw`h-14 w-14`}
+              />
             </Pressable>
           </View>
 
@@ -80,7 +81,10 @@ const UserHomeScreen = () => {
                 })
               }
             >
-              <LucideFlame size={32} style={tw`text-persian-red-600`} />
+              <Image
+                source={require("~/assets/images/bfp.png")}
+                style={tw`h-14 w-14`}
+              />
             </Pressable>
           </View>
 

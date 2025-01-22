@@ -84,7 +84,7 @@ const ResponderHomeScreen = () => {
           <View
             key={`report-${r.id}`}
             style={[
-              tw`flex-row items-center justify-between rounded-lg px-4 py-3`,
+              tw`flex-row items-center justify-between rounded-2xl px-4 py-3`,
               r.status === "pending"
                 ? tw`bg-persian-red-600`
                 : tw`bg-green-600`,

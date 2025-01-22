@@ -25,8 +25,7 @@ import { ReportScreen } from "~/screens/user/report";
 import { TermsOfServiceScreen } from "~/screens/user/terms-of-service";
 import { VideoCallScreen } from "~/screens/user/video-call";
 import { useAppSelector } from "~/store";
-import { RootStackParamList } from "./root-stack";
-import { RootStackScreenProps } from "./types";
+import { RootStackParamList, RootStackScreenProps } from "./root-stack";
 
 export type UserStackParamList = {
   Home: undefined;

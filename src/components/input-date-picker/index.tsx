@@ -47,10 +47,10 @@ const InputDatePicker = (props: InputDatePickerProps) => {
           </View>
         )}
 
-        <View style={tw`overflow-hidden rounded-lg`}>
+        <View style={tw`overflow-hidden rounded-2xl`}>
           <Pressable
             style={[
-              tw`flex h-12 flex-row items-center rounded-lg border border-gray-300 px-4`,
+              tw`flex h-12 flex-row items-center rounded-2xl border border-gray-300 px-4`,
               !!Icon && tw`pl-10`,
               style,
             ]}

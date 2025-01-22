@@ -12,7 +12,7 @@ import {
   getUsersByRealtime,
 } from "~/lib/firebase/firestore";
 import { tw } from "~/lib/tailwind";
-import { UserStackScreenProps } from "~/navigations/types";
+import { UserStackScreenProps } from "~/navigations/user-stack";
 import { MessageSchema } from "~/schema/message";
 import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";

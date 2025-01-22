@@ -3,10 +3,12 @@ import { Image, Text, View, ViewProps } from "react-native";
 
 import { tw } from "~/lib/tailwind";
 
-interface LogoProps extends ViewProps {}
+interface LogoProps extends ViewProps {
+  hideText?: boolean;
+}
 
 const Logo = (props: LogoProps) => {
-  const { style, ...rest } = props;
+  const { style, hideText = false, ...rest } = props;
 
   return (
     <View {...rest} style={[tw`items-center justify-center`, style]}>
@@ -15,11 +17,13 @@ const Logo = (props: LogoProps) => {
         style={tw`h-32 w-32`}
       />
 
-      <Text
-        style={tw`font-kaisei-decol-medium text-3xl tracking-widest text-persian-red-600`}
-      >
-        ALERTO
-      </Text>
+      {!hideText && (
+        <Text
+          style={tw`font-kaisei-decol-medium text-3xl tracking-widest text-persian-red-600`}
+        >
+          ALERTO
+        </Text>
+      )}
     </View>
   );
 };

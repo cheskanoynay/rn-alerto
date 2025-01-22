@@ -102,7 +102,7 @@ const AddRelativesScreen = () => {
       )}
 
       <Modal isVisible={isVisible.length > 0}>
-        <View style={tw`gap-4 rounded-lg bg-white p-4`}>
+        <View style={tw`gap-4 rounded-2xl bg-white p-4`}>
           <Text>What's your relationship with this relative?</Text>
 
           <Input

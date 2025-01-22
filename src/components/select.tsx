@@ -26,7 +26,7 @@ const Select = (props: SelectProps) => {
       }
       labelStyle={tw`text-sm text-black px-2 mb-0`}
       dropdownIconStyle={tw`-mt-1`}
-      dropdownStyle={tw`flex h-12 flex-row items-center rounded-lg border border-gray-300 px-4`}
+      dropdownStyle={tw`flex h-12 flex-row items-center rounded-2xl border border-gray-300 px-4`}
       selectedValue={value}
       onValueChange={(v) => typeof v === "string" && onChange(v)}
       {...rest}
