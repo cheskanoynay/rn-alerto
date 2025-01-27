@@ -4,6 +4,7 @@ import {
   LucideBell,
   LucideEllipsisVertical,
   LucideHistory,
+  LucideList,
   LucideListCheck,
   LucideLogOut,
   LucideUser2,
@@ -92,6 +93,18 @@ const UserLayout = (props: UserLayoutProps) => {
                   >
                     <LucideUsers2 size={16} color="#000000" />
                     <Text>My Relatives</Text>
+                  </MenuOption>
+
+                  <MenuOption
+                    style={tw`flex-row items-center gap-2 px-3`}
+                    onSelect={() =>
+                      navigation.navigate("User", {
+                        screen: "RecentActivities",
+                      })
+                    }
+                  >
+                    <LucideList size={16} color="#000000" />
+                    <Text>Recent Activities</Text>
                   </MenuOption>
 
                   <MenuOption

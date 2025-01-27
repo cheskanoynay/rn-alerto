@@ -65,7 +65,7 @@ const PreRegistrationScreen = () => {
             </View>
 
             <View style={tw`justify-center`}>
-              <Text style={tw`text-center text-xs text-gray-500`}>
+              <Text style={tw`text-center text-gray-500`}>
                 By tapping "I Agree", you agree to the App's{" "}
                 <Text
                   style={tw`underline`}
@@ -97,7 +97,7 @@ const PreRegistrationScreen = () => {
           </Button>
         </View>
 
-        <Text style={tw`text-center text-xs text-gray-500`}>
+        <Text style={tw`text-center text-gray-500`}>
           By tapping "Register", you agree to the App's{" "}
           <Text
             style={tw`underline`}

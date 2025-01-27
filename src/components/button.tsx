@@ -14,19 +14,45 @@ import { Spinner } from "./spinner";
 interface ButtonProps extends PressableProps {
   wrapperStyle?: StyleProp<ViewStyle>;
   loading?: boolean;
+  size?: "base" | "sm";
+  color?: "default" | "green" | "gray";
 }
 
 const Button = (props: ButtonProps) => {
-  const { loading, children, style, disabled, wrapperStyle, ...rest } = props;
+  const {
+    loading,
+    children,
+    style,
+    disabled,
+    wrapperStyle,
+    size = "base",
+    color = "default",
+    ...rest
+  } = props;
 
   return (
-    <View style={[tw`h-12 overflow-hidden rounded-2xl`, wrapperStyle]}>
+    <View
+      style={[
+        tw`overflow-hidden rounded-2xl`,
+        wrapperStyle,
+        size === "base" && tw`h-12`,
+        size === "sm" && tw`h-10`,
+      ]}
+    >
       <Pressable
         {...rest}
         style={(p) => [
           typeof style === "function" ? style(p) : style,
-          tw`h-14 flex-1 flex-row items-center justify-center gap-1 rounded-2xl bg-persian-red-600 px-6 py-2`,
-          p.pressed && tw`bg-persian-red-600/90`,
+          size === "base" &&
+            tw`h-12 flex-1 flex-row items-center justify-center gap-1 rounded-2xl px-6 py-2`,
+          size === "sm" &&
+            tw`h-10 flex-1 flex-row items-center justify-center gap-1 rounded-2xl px-4 py-1 text-xs`,
+          color === "default" && tw`bg-persian-red-600`,
+          color === "green" && tw`bg-green-600`,
+          color === "gray" && tw`bg-gray-600`,
+          p.pressed && color === "default" && tw`bg-persian-red-600/90`,
+          p.pressed && color === "green" && tw`bg-green-600/90`,
+          p.pressed && color === "gray" && tw`bg-gray-600/90`,
           disabled || loading ? tw`opacity-50` : tw``,
         ]}
         disabled={disabled || loading}
@@ -43,7 +69,15 @@ const Button = (props: ButtonProps) => {
               )}
 
               {typeof children === "string" ? (
-                <Text style={[tw`text-center text-white text-xs`]}>{children}</Text>
+                <Text
+                  style={[
+                    tw`text-center text-white`,
+                    size === "base" && tw`text-base`,
+                    size === "sm" && tw`text-xs`,
+                  ]}
+                >
+                  {children}
+                </Text>
               ) : typeof children === "function" ? (
                 children(p)
               ) : (

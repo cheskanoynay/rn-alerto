@@ -19,6 +19,7 @@ import { MessagesScreen } from "~/screens/user/messages";
 import { NotificationsScreen } from "~/screens/user/notifications";
 import { PreRegistrationScreen } from "~/screens/user/pre-registration";
 import { ProfileScreen } from "~/screens/user/profile";
+import { RecentActivitiesScreen } from "~/screens/user/recent-activities";
 import { RegistrationScreen } from "~/screens/user/registration";
 import { RelativesScreen } from "~/screens/user/relatives";
 import { ReportScreen } from "~/screens/user/report";
@@ -42,6 +43,7 @@ export type UserStackParamList = {
   Profile: undefined;
   Relatives: undefined;
   AddRelatives: undefined;
+  RecentActivities: undefined;
 };
 export type UserStackScreenProps<T extends keyof UserStackParamList> =
   CompositeScreenProps<
@@ -76,6 +78,10 @@ const UserNavigation = () => {
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Relatives" component={RelativesScreen} />
           <Stack.Screen name="AddRelatives" component={AddRelativesScreen} />
+          <Stack.Screen
+            name="RecentActivities"
+            component={RecentActivitiesScreen}
+          />
         </>
       ) : (
         <>

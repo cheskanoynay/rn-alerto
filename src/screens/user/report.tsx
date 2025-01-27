@@ -120,7 +120,7 @@ const ReportScreen = () => {
           >
             <LucideVideo size={20} style={tw`text-white`} />
 
-            <Text style={tw`text-center text-white text-xs`}>Video Call</Text>
+            <Text style={tw`text-center text-white`}>Video Call</Text>
           </Button>
 
           <Button
@@ -134,7 +134,7 @@ const ReportScreen = () => {
           >
             <LucidePhone size={20} style={tw`text-white`} />
 
-            <Text style={tw`text-center text-white text-xs`}>Phone Call</Text>
+            <Text style={tw`text-center text-white`}>Phone Call</Text>
           </Button>
 
           <Button
@@ -157,7 +157,7 @@ const ReportScreen = () => {
           >
             <LucideMessageCircleMore size={20} style={tw`text-white`} />
 
-            <Text style={tw`text-center text-white text-xs`}>Message</Text>
+            <Text style={tw`text-center text-white`}>Message</Text>
           </Button>
         </View>
       </View>

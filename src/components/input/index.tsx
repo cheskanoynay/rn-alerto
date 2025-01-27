@@ -22,7 +22,7 @@ const Input = (props: InputProps) => {
 
   return (
     <View style={[tw`gap-[2px]`, wrapperStyle]}>
-      {!!label && <Text style={tw`px-1 text-xs`}>{label}</Text>}
+      {!!label && <Text style={tw`px-1`}>{label}</Text>}
 
       <View style={tw`relative`}>
         {!!Icon && (
@@ -41,7 +41,7 @@ const Input = (props: InputProps) => {
 
         <TextInput
           style={[
-            tw`flex h-12 flex-row items-center text-xs rounded-2xl border border-gray-300 bg-white px-4`,
+            tw`flex h-12 flex-row items-center rounded-2xl border border-gray-300 bg-white px-4`,
             !!Icon && tw`pl-10`,
             style,
           ]}

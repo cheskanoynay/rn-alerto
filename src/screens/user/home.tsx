@@ -38,7 +38,7 @@ const UserHomeScreen = () => {
             </Pressable>
           </View>
 
-          <Text style={tw`text-center text-xs`}>POLICE</Text>
+          <Text style={tw`text-center`}>POLICE</Text>
         </View>
 
         <View style={tw`items-center gap-2`}>
@@ -63,7 +63,7 @@ const UserHomeScreen = () => {
             </Pressable>
           </View>
 
-          <Text style={tw`text-center text-xs`}>MEDICAL</Text>
+          <Text style={tw`text-center`}>MEDICAL</Text>
         </View>
 
         <View style={tw`items-center gap-2`}>
@@ -88,7 +88,7 @@ const UserHomeScreen = () => {
             </Pressable>
           </View>
 
-          <Text style={tw`text-center text-xs`}>FIRE</Text>
+          <Text style={tw`text-center`}>FIRE</Text>
         </View>
       </View>
     </UserLayout>

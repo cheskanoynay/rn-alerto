@@ -24,6 +24,10 @@ const Logo = (props: LogoProps) => {
           ALERTO
         </Text>
       )}
+
+      <Text style={tw`text-center text-persian-red-600`}>
+        An Emergency Response Mobile Application
+      </Text>
     </View>
   );
 };

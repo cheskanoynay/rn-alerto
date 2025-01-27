@@ -61,7 +61,7 @@ const HistoryScreen = () => {
             <View style={tw`flex-1`}>
               <Text>{`${r.type.toUpperCase()} REPORT`}</Text>
 
-              <Text style={tw`text-xs text-gray-500`}>
+              <Text style={tw`text-gray-500`}>
                 {format(r.dateCreated, "MMM dd, yyyy hh:mma")}
               </Text>
             </View>

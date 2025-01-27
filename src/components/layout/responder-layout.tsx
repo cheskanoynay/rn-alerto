@@ -44,7 +44,7 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={tw`h-full w-full`}>
-        <Background>
+        <Background gradient={false}>
           <View style={tw`flex-row items-center justify-between p-4`}>
             <Image
               source={require("~/assets/images/logo.png")}
