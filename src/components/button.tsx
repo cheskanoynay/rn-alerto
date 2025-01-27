@@ -35,18 +35,17 @@ const Button = (props: ButtonProps) => {
       style={[
         tw`overflow-hidden rounded-2xl`,
         wrapperStyle,
-        size === "base" && tw`h-12`,
-        size === "sm" && tw`h-10`,
+        size === "base" && tw`h-16`,
+        size === "sm" && tw`h-14`,
       ]}
     >
       <Pressable
         {...rest}
         style={(p) => [
-          typeof style === "function" ? style(p) : style,
           size === "base" &&
-            tw`h-12 flex-1 flex-row items-center justify-center gap-1 rounded-2xl px-6 py-2`,
+            tw`h-16 flex-1 flex-row items-center justify-center gap-1 rounded-2xl px-6 py-2`,
           size === "sm" &&
-            tw`h-10 flex-1 flex-row items-center justify-center gap-1 rounded-2xl px-4 py-1 text-xs`,
+            tw`h-14 flex-1 flex-row items-center justify-center gap-1 rounded-2xl px-4 py-1 text-xs`,
           color === "default" && tw`bg-persian-red-600`,
           color === "green" && tw`bg-green-600`,
           color === "gray" && tw`bg-gray-600`,
@@ -54,6 +53,7 @@ const Button = (props: ButtonProps) => {
           p.pressed && color === "green" && tw`bg-green-600/90`,
           p.pressed && color === "gray" && tw`bg-gray-600/90`,
           disabled || loading ? tw`opacity-50` : tw``,
+          typeof style === "function" ? style(p) : style,
         ]}
         disabled={disabled || loading}
         android_ripple={{

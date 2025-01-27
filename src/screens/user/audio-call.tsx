@@ -20,7 +20,7 @@ import { UserStackScreenProps } from "~/navigations/user-stack";
 
 const reportText = {
   police: "PNP",
-  medical: "NDRRMC",
+  medical: "LDRRMO",
   fire: "BFP",
   "": "",
 };

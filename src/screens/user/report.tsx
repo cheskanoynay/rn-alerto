@@ -23,7 +23,7 @@ import { getError } from "~/utils/error";
 
 const reportText = {
   police: "PNP",
-  medical: "NDRRMC",
+  medical: "LDRRMO",
   fire: "BFP",
 };
 

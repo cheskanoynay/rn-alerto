@@ -85,6 +85,7 @@ const RecentActivitiesScreen = () => {
           >
             <View style={[tw`flex-1`]}>
               <Text style={tw`text-white`}>
+                [{r.agency.toUpperCase()}] -{" "}
                 {r.status === "pending" ? "NEED HELP!" : "RESPONDED"}
               </Text>
 
