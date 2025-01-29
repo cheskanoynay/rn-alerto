@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import './global.css';
-import Test from './src/Test';
+import Test from "./src/Test";
+
+import "./global.css";
 
 const App = () => {
   return <Test />;
