@@ -1,9 +1,12 @@
-import { AppRegistry } from "react-native";
+import { registerRootComponent } from 'expo';
+import { ExpoRoot } from 'expo-router';
 
-import App from "./App";
-import { name as appName } from "./app.json";
+// https://docs.expo.dev/router/reference/troubleshooting/#expo_router_app_root-not-defined
 
-import "react-native-gesture-handler";
-import "react-native-get-random-values";
+// Must be exported or Fast Refresh won't update the context
+export function App() {
+  const ctx = require.context('./app');
+  return <ExpoRoot context={ctx} />;
+}
 
-AppRegistry.registerComponent(appName, () => App);
+registerRootComponent(App);
