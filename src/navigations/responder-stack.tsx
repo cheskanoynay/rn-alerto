@@ -40,7 +40,7 @@ declare global {
 
 const Stack = createStackNavigator<ResponderStackParamList>();
 
-const ResponderNavigation = () => {
+const ResponderStack = () => {
   const navigation = useNavigation();
   const { userData } = useAppSelector((state) => state.user);
 
@@ -52,7 +52,7 @@ const ResponderNavigation = () => {
   }, [navigation, userData]);
 
   return (
-    <Stack.Navigator id="RootStack" screenOptions={{ headerShown: false }}>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       {userData ? (
         <>
           <Stack.Screen name="Home" component={ResponderHomeScreen} />
@@ -71,4 +71,4 @@ const ResponderNavigation = () => {
   );
 };
 
-export default ResponderNavigation;
+export { ResponderStack };

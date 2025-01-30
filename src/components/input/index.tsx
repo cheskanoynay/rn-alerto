@@ -1,50 +1,35 @@
 import React from "react";
 import { LucideIcon } from "lucide-react-native";
-import {
-  StyleProp,
-  Text,
-  TextInput,
-  TextInputProps,
-  View,
-  ViewStyle,
-} from "react-native";
+import { Text, TextInput, TextInputProps, View } from "react-native";
 
-import { tw } from "~/lib/tailwind";
+import { cn } from "~/utils/style";
 
 interface InputProps extends TextInputProps {
   label?: string;
   icon?: LucideIcon;
-  wrapperStyle?: StyleProp<ViewStyle>;
+  wrapperClassName?: string;
 }
 
 const Input = (props: InputProps) => {
-  const { wrapperStyle, label, icon: Icon, style, ...rest } = props;
+  const { wrapperClassName, className, label, icon: Icon, ...rest } = props;
 
   return (
-    <View style={[tw`gap-[2px]`, wrapperStyle]}>
-      {!!label && <Text style={tw`px-1`}>{label}</Text>}
+    <View className={cn("gap-[2px]", wrapperClassName)}>
+      {!!label && <Text className="px-1">{label}</Text>}
 
-      <View style={tw`relative`}>
+      <View className="relative">
         {!!Icon && (
-          <View
-            style={[
-              tw`absolute left-3 top-1/2`,
-              {
-                transform: [{ translateY: "-50%" }],
-                zIndex: 1,
-              },
-            ]}
-          >
+          <View className="absolute left-4 top-1/2 z-[1] -translate-y-1/2">
             <Icon size={22} color="#6b7280" strokeWidth={1} />
           </View>
         )}
 
         <TextInput
-          style={[
-            tw`flex h-12 flex-row items-center rounded-2xl border border-gray-300 bg-white px-4`,
-            !!Icon && tw`pl-10`,
-            style,
-          ]}
+          className={cn(
+            "flex h-16 flex-row items-center rounded-2xl border border-gray-300 bg-white px-4",
+            !!Icon && "pl-14",
+            className,
+          )}
           {...rest}
         />
       </View>

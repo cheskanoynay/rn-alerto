@@ -78,7 +78,7 @@ const UserLayout = (props: UserLayoutProps) => {
             </View>
 
             <View className={`w-1/5 flex-row justify-end`}>
-              {/* <Menu
+              <Menu
                 renderer={renderers.Popover}
                 rendererProps={{ placement: "bottom" }}
               >
@@ -157,7 +157,7 @@ const UserLayout = (props: UserLayoutProps) => {
                     <Text>{loading ? "Logging out..." : "Logout"}</Text>
                   </MenuOption>
                 </MenuOptions>
-              </Menu> */}
+              </Menu>
             </View>
           </View>
 

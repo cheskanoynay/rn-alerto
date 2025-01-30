@@ -8,7 +8,6 @@ import { InputDatePicker } from "~/components/input-date-picker";
 import { ResponderLayout } from "~/components/layout/responder-layout";
 import { Select } from "~/components/select";
 import { updateUser } from "~/lib/firebase/firestore";
-import { tw } from "~/lib/tailwind";
 import { useAppSelector } from "~/store";
 import { getError } from "~/utils/error";
 
@@ -65,9 +64,9 @@ const ProfileScreen = () => {
 
   return (
     <ResponderLayout>
-      <ScrollView contentContainerStyle={tw`gap-4 p-4`}>
-        <View style={tw`items-center justify-center`}>
-          <View style={tw`h-32 w-32 rounded-full bg-gray-300`} />
+      <ScrollView contentContainerClassName="gap-4 p-4">
+        <View className="items-center justify-center">
+          <View className="h-32 w-32 rounded-full bg-gray-300" />
         </View>
 
         <Input label="Fullname" value={name} onChangeText={setName} />

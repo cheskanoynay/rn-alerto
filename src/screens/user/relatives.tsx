@@ -1,14 +1,13 @@
-import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { ScrollView, Text, View } from "react-native";
 
 import { Button } from "~/components/button";
 import { UserLayout } from "~/components/layout/user-layout";
 import {
   getRelativesByUserIdRealtime,
-  getUsersBy
+  getUsersBy,
 } from "~/lib/firebase/firestore";
-import { tw } from "~/lib/tailwind";
 import { RelativeSchema } from "~/schema/relative";
 import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";
@@ -46,11 +45,11 @@ const RelativesScreen = () => {
   return (
     <UserLayout title="My Relatives">
       {loading ? (
-        <View style={tw`flex-1 items-center justify-center p-4`}>
+        <View className="flex-1 items-center justify-center p-4">
           <Text>Loading...</Text>
         </View>
       ) : (
-        <ScrollView contentContainerStyle={tw`gap-2 p-4`}>
+        <ScrollView contentContainerClassName="gap-2 p-4">
           {relatives.map((r) => {
             const relativeId =
               r.userId === userData?.id ? r.relativeId : r.userId;
@@ -59,10 +58,10 @@ const RelativesScreen = () => {
             return (
               <View
                 key={`user-${r.id}`}
-                style={tw`flex-row items-center justify-between gap-2`}
+                className="flex-row items-center justify-between gap-2"
               >
-                <View style={tw`flex-row items-center gap-2`}>
-                  <View style={tw`h-12 w-12 rounded-full bg-gray-300`} />
+                <View className="flex-row items-center gap-2">
+                  <View className="h-12 w-12 rounded-full bg-gray-300" />
 
                   <Text>{data?.name}</Text>
                 </View>
@@ -72,7 +71,7 @@ const RelativesScreen = () => {
         </ScrollView>
       )}
 
-      <View style={tw`p-4`}>
+      <View className="p-4">
         <Button
           onPress={() =>
             navigation.navigate("User", { screen: "AddRelatives" })
@@ -86,4 +85,3 @@ const RelativesScreen = () => {
 };
 
 export { RelativesScreen };
-

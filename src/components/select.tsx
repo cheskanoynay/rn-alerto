@@ -1,8 +1,13 @@
 import React, { ComponentProps } from "react";
 import { LucideChevronDown } from "lucide-react-native";
+import { remapProps } from "nativewind";
 import Dropdown from "react-native-input-select";
 
-import { tw } from "~/lib/tailwind";
+const RemappedDropdown = remapProps(Dropdown, {
+  labelClassName: "labelStyle",
+  dropdownIconClassName: "dropdownIconStyle",
+  dropdownClassName: "dropdownStyle",
+});
 
 interface SelectProps
   extends Omit<
@@ -17,16 +22,16 @@ const Select = (props: SelectProps) => {
   const { onChange, value, ...rest } = props;
 
   return (
-    <Dropdown
+    <RemappedDropdown
       placeholder="Select an option..."
       isMultiple={false}
       primaryColor={"green"}
       dropdownIcon={
         <LucideChevronDown size={22} color="#6b7280" strokeWidth={1} />
       }
-      labelStyle={tw`text-sm text-black px-2 mb-0`}
-      dropdownIconStyle={tw`-mt-1`}
-      dropdownStyle={tw`flex h-12 flex-row items-center rounded-2xl border border-gray-300 px-4`}
+      labelClassName="mb-0 px-2 text-sm text-black"
+      dropdownIconClassName="-mt-1"
+      dropdownClassName="flex h-12 flex-row items-center rounded-2xl border border-gray-300 px-4"
       selectedValue={value}
       onValueChange={(v) => typeof v === "string" && onChange(v)}
       {...rest}

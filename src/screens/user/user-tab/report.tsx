@@ -5,7 +5,7 @@ import { Image, Pressable, Text, View } from "react-native";
 import { UserLayout } from "~/components/layout/user-layout";
 import { Logo } from "~/components/logo";
 
-const UserReportScreen = () => {
+const ReportScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -123,4 +123,4 @@ const UserReportScreen = () => {
   );
 };
 
-export { UserReportScreen };
+export { ReportScreen };

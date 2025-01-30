@@ -15,7 +15,6 @@ import { Pressable, Text, View } from "react-native";
 import { useMicrophonePermission } from "react-native-vision-camera";
 
 import { UserLayout } from "~/components/layout/user-layout";
-import { tw } from "~/lib/tailwind";
 import { UserStackScreenProps } from "~/navigations/user-stack";
 
 const reportText = {
@@ -45,78 +44,78 @@ const AudioCallScreen = () => {
   }, [reqMicPerm]);
 
   return (
-    <UserLayout style={tw`flex-1`}>
-      <View style={tw`flex-1 items-center justify-center gap-4 p-4`}>
-        <View style={tw`rounded-full border p-4`}>
-          <Icon size={64} style={tw`text-black`} />
+    <UserLayout className="flex-1">
+      <View className="flex-1 items-center justify-center gap-4 p-4">
+        <View className="rounded-full border p-4">
+          <Icon size={64} className="text-black" />
         </View>
 
-        <View style={tw`items-center gap-2`}>
-          <Text style={tw`text-center`}>Calling...</Text>
-          <Text style={tw`text-center text-lg`}>{reportText[type]}</Text>
-        </View>
-      </View>
-
-      <View style={tw`flex-row items-center justify-center justify-around p-4`}>
-        <View style={tw`overflow-hidden rounded-full`}>
-          <Pressable
-            style={tw`rounded-full border p-4`}
-            android_ripple={{
-              color: "#000000",
-              borderless: true,
-            }}
-          >
-            <LucideMessageSquareText size={24} style={tw`text-black`} />
-          </Pressable>
-        </View>
-
-        <View style={tw`overflow-hidden rounded-full`}>
-          <Pressable
-            style={tw`rounded-full border p-4`}
-            android_ripple={{
-              color: "#000000",
-              borderless: true,
-            }}
-          >
-            <LucideMicOff size={24} style={tw`text-black`} />
-          </Pressable>
-        </View>
-
-        <View style={tw`overflow-hidden rounded-full`}>
-          <Pressable
-            style={tw`rounded-full border p-4`}
-            android_ripple={{
-              color: "#000000",
-              borderless: true,
-            }}
-          >
-            <LucideVolume2 size={24} style={tw`text-black`} />
-          </Pressable>
-        </View>
-
-        <View style={tw`overflow-hidden rounded-full`}>
-          <Pressable
-            style={tw`rounded-full border p-4`}
-            android_ripple={{
-              color: "#000000",
-              borderless: true,
-            }}
-          >
-            <LucideEllipsisVertical size={24} style={tw`text-black`} />
-          </Pressable>
+        <View className="items-center gap-2">
+          <Text className="text-center">Calling...</Text>
+          <Text className="text-center text-lg">{reportText[type]}</Text>
         </View>
       </View>
 
-      <View style={tw`items-center justify-center p-4`}>
-        <View style={tw`overflow-hidden rounded-full`}>
+      <View className="flex-row items-center justify-center justify-around p-4">
+        <View className="overflow-hidden rounded-full">
           <Pressable
-            style={tw`rounded-full border bg-persian-red-600 p-4`}
+            className="rounded-full border p-4"
             android_ripple={{
               color: "#000000",
               borderless: true,
             }}
           >
-            <LucidePhone size={32} style={tw`text-white`} />
+            <LucideMessageSquareText size={24} className="text-black" />
+          </Pressable>
+        </View>
+
+        <View className="overflow-hidden rounded-full">
+          <Pressable
+            className="rounded-full border p-4"
+            android_ripple={{
+              color: "#000000",
+              borderless: true,
+            }}
+          >
+            <LucideMicOff size={24} className="text-black" />
+          </Pressable>
+        </View>
+
+        <View className="overflow-hidden rounded-full">
+          <Pressable
+            className="rounded-full border p-4"
+            android_ripple={{
+              color: "#000000",
+              borderless: true,
+            }}
+          >
+            <LucideVolume2 size={24} className="text-black" />
+          </Pressable>
+        </View>
+
+        <View className="overflow-hidden rounded-full">
+          <Pressable
+            className="rounded-full border p-4"
+            android_ripple={{
+              color: "#000000",
+              borderless: true,
+            }}
+          >
+            <LucideEllipsisVertical size={24} className="text-black" />
+          </Pressable>
+        </View>
+      </View>
+
+      <View className="items-center justify-center p-4">
+        <View className="overflow-hidden rounded-full">
+          <Pressable
+            className="rounded-full border bg-persian-red-600 p-4"
+            android_ripple={{
+              color: "#000000",
+              borderless: true,
+            }}
+          >
+            <LucidePhone size={32} className="text-white" />
           </Pressable>
         </View>
       </View>

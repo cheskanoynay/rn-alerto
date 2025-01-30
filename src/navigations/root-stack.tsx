@@ -8,16 +8,14 @@ import {
 import { HomeScreen } from "~/screens/home";
 import { SplashScreen } from "~/screens/splash";
 import { useAppSelector } from "~/store";
-import ResponderNavigation, {
-  ResponderStackParamList,
-} from "./responder-stack";
-import UserNavigation, { UserStackParamList } from "./user-stack";
+import { ResponderStack, ResponderStackParamList } from "./responder-stack";
+import { UserStack, UserStackParamList } from "./user-stack";
 
 export type RootStackParamList = {
   Splash: undefined;
   Home: undefined;
-  User: NavigatorScreenParams<UserStackParamList>;
-  Responders: NavigatorScreenParams<ResponderStackParamList>;
+  UserStack: NavigatorScreenParams<UserStackParamList>;
+  ResponderStack: NavigatorScreenParams<ResponderStackParamList>;
 };
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
   StackScreenProps<RootStackParamList, T>;
@@ -29,14 +27,13 @@ const RootStack = () => {
 
   return (
     <Stack.Navigator
-      id="RootStack"
       screenOptions={{ headerShown: false }}
       initialRouteName="Splash"
     >
       <Stack.Screen name="Splash" component={SplashScreen} />
       {!userData && <Stack.Screen name="Home" component={HomeScreen} />}
-      <Stack.Screen name="User" component={UserNavigation} />
-      <Stack.Screen name="Responders" component={ResponderNavigation} />
+      <Stack.Screen name="UserStack" component={UserStack} />
+      <Stack.Screen name="ResponderStack" component={ResponderStack} />
     </Stack.Navigator>
   );
 };

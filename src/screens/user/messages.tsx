@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import _ from "lodash";
 import { LucidePaperclip, LucideSend } from "lucide-react-native";
+import { remapProps } from "nativewind";
 import { Alert, TouchableOpacity, View } from "react-native";
 import { GiftedChat, IMessage, Send } from "react-native-gifted-chat";
 
@@ -11,12 +12,15 @@ import {
   getMessagesByRealtime,
   getUsersByRealtime,
 } from "~/lib/firebase/firestore";
-import { tw } from "~/lib/tailwind";
 import { UserStackScreenProps } from "~/navigations/user-stack";
 import { MessageSchema } from "~/schema/message";
 import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";
 import { getError } from "~/utils/error";
+
+const RemappedSend = remapProps(Send, {
+  containerClassName: "containerStyle",
+});
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState<MessageSchema[]>([]);
@@ -96,7 +100,7 @@ const MessagesScreen = () => {
   }, [messages]);
 
   return (
-    <UserLayout style={tw`flex-1`}>
+    <UserLayout className="flex-1">
       <GiftedChat
         messages={parsedMessages}
         onSend={handleSendMessage}
@@ -105,17 +109,17 @@ const MessagesScreen = () => {
         }}
         alwaysShowSend
         renderSend={(sendProps) => (
-          <View style={tw`flex-row items-center gap-2 px-4`}>
+          <View className="flex-row items-center gap-2 px-4">
             <TouchableOpacity>
-              <LucidePaperclip style={tw`text-black`} size={20} />
+              <LucidePaperclip className="text-black" size={20} />
             </TouchableOpacity>
 
-            <Send
+            <RemappedSend
               {...sendProps}
-              containerStyle={tw`items-center justify-center`}
+              containerClassName="items-center justify-center"
             >
-              <LucideSend style={tw`text-blue-600`} size={20} />
-            </Send>
+              <LucideSend className="text-blue-600" size={20} />
+            </RemappedSend>
           </View>
         )}
       />

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { format } from "date-fns";
 import _ from "lodash";
-import { LucideCheck, LucideEye } from "lucide-react-native";
+import { LucideEye } from "lucide-react-native";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { UserLayout } from "~/components/layout/user-layout";
 import { getReportsByRealtime } from "~/lib/firebase/firestore";
 import { getReverseGeocodeClient } from "~/lib/geolocation";
-import { tw } from "~/lib/tailwind";
 import {
   ReportAgencySchema,
   ReportSchema,
   ReportTypeSchema,
 } from "~/schema/report";
 import { useAppSelector } from "~/store";
+import { cn } from "~/utils/style";
 
 const RecentActivitiesScreen = () => {
   const [reports, setReports] = useState<
@@ -72,34 +72,32 @@ const RecentActivitiesScreen = () => {
 
   return (
     <UserLayout title="Recent Activities">
-      <ScrollView contentContainerStyle={tw`gap-2 p-4`}>
+      <ScrollView contentContainerClassName="gap-2 p-4">
         {sortedReports.map((r) => (
           <View
             key={`report-${r.id}`}
-            style={[
-              tw`flex-row items-center justify-between rounded-2xl px-4 py-3`,
-              r.status === "pending"
-                ? tw`bg-persian-red-600`
-                : tw`bg-green-600`,
-            ]}
+            className={cn(
+              "flex-row items-center justify-between rounded-2xl px-4 py-3",
+              r.status === "pending" ? "bg-persian-red-600" : "bg-green-600",
+            )}
           >
-            <View style={[tw`flex-1`]}>
-              <Text style={tw`text-white`}>
+            <View className="flex-1">
+              <Text className="text-white">
                 [{r.agency.toUpperCase()}] -{" "}
                 {r.status === "pending" ? "NEED HELP!" : "RESPONDED"}
               </Text>
 
-              <Text style={tw`text-white`}>
+              <Text className="text-white">
                 {format(r.dateCreated, "MMM dd, yyyy hh:mma")} - {r.location} (
                 {r.latitude}, {r.longitude})
               </Text>
             </View>
 
-            <View style={tw`flex-row items-center gap-2`}>
+            <View className="flex-row items-center gap-2">
               <TouchableOpacity
                 onPress={() => handleRedirect(r.id, r.type, r.agency)}
               >
-                <LucideEye style={tw`text-white`} size={20} />
+                <LucideEye className="text-white" size={20} />
               </TouchableOpacity>
             </View>
           </View>

@@ -8,7 +8,6 @@ import { Background } from "~/components/background";
 import { Button } from "~/components/button";
 import { Input } from "~/components/input";
 import { Logo } from "~/components/logo";
-import { tw } from "~/lib/tailwind";
 import { useAppDispatch, useAppSelector } from "~/store";
 import { login } from "~/store/auth-slice";
 import { getError } from "~/utils/error";
@@ -45,20 +44,20 @@ const LoginScreen = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={tw`flex-grow`}>
+    <ScrollView contentContainerClassName="flex-grow">
       <Background
-        style={tw`items-center justify-center gap-8 p-4`}
+        className="items-center justify-center gap-8 p-4"
         gradient={false}
       >
-        <View style={tw`flex-1 items-center justify-center gap-8`}>
+        <View className="flex-1 items-center justify-center gap-8">
           <Logo />
         </View>
 
-        <View style={tw`w-full gap-4`}>
-          <View style={tw`gap-2`}>
+        <View className="w-full gap-4">
+          <View className="gap-2">
             <Input
               label="Email"
-              wrapperStyle={tw`w-full`}
+              wrapperClassName="w-full"
               icon={LucideMail}
               keyboardType="email-address"
               onChangeText={setEmail}
@@ -68,7 +67,7 @@ const LoginScreen = () => {
 
             <Input
               label="Password"
-              wrapperStyle={tw`w-full`}
+              wrapperClassName="w-full"
               icon={LucideLock}
               onChangeText={setPassword}
               value={password}

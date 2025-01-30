@@ -7,7 +7,6 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { UserLayout } from "~/components/layout/user-layout";
 import { getReportsByRealtime } from "~/lib/firebase/firestore";
-import { tw } from "~/lib/tailwind";
 import {
   ReportAgencySchema,
   ReportSchema,
@@ -51,22 +50,22 @@ const HistoryScreen = () => {
 
   return (
     <UserLayout title="History">
-      <ScrollView contentContainerStyle={tw`gap-2 p-4`}>
+      <ScrollView contentContainerClassName="gap-2 p-4">
         {sortedReports.map((r) => (
           <TouchableOpacity
             key={`report-${r.id}`}
-            style={tw`h-14 flex-row items-center justify-between rounded-2xl border px-4 py-2`}
+            className="h-14 flex-row items-center justify-between rounded-2xl border px-4 py-2"
             onPress={() => handleRedirect(r.id, r.type, r.agency)}
           >
-            <View style={tw`flex-1`}>
+            <View className="flex-1">
               <Text>{`${r.type.toUpperCase()} REPORT`}</Text>
 
-              <Text style={tw`text-gray-500`}>
+              <Text className="text-gray-500">
                 {format(r.dateCreated, "MMM dd, yyyy hh:mma")}
               </Text>
             </View>
 
-            <LucideChevronRight style={tw`text-black`} size={16} />
+            <LucideChevronRight className="text-black" size={16} />
           </TouchableOpacity>
         ))}
       </ScrollView>

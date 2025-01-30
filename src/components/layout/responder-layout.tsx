@@ -7,7 +7,8 @@ import {
   LucideLogOut,
   LucideUser2,
 } from "lucide-react-native";
-import { Image, StyleProp, Text, View, ViewStyle } from "react-native";
+import { remapProps } from "nativewind";
+import { Image, Text, View } from "react-native";
 import {
   Menu,
   MenuOption,
@@ -17,18 +18,29 @@ import {
 } from "react-native-popup-menu";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import { tw } from "~/lib/tailwind";
 import { useAppDispatch, useAppSelector } from "~/store";
 import { logout } from "~/store/auth-slice";
+import { cn } from "~/utils/style";
 import { Background } from "../background";
+
+const RemappedMenuTrigger = remapProps(MenuTrigger, {
+  className: "style",
+});
+const RemappedMenuOptions = remapProps(MenuOptions, {
+  className: "customStyles",
+  optionsContainerClassName: "optionsContainerStyle",
+});
+const RemappedMenuOption = remapProps(MenuOption, {
+  className: "style",
+});
 
 interface ResponderLayoutProps {
   children?: ReactNode;
-  style?: StyleProp<ViewStyle>;
+  className?: string;
 }
 
 const ResponderLayout = (props: ResponderLayoutProps) => {
-  const { children, style = false } = props;
+  const { children, className } = props;
 
   const navigation = useNavigation();
   const { loading } = useAppSelector((state) => state.auth);
@@ -43,37 +55,35 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={tw`h-full w-full`}>
+      <SafeAreaView className="h-full w-full">
         <Background gradient={false}>
-          <View style={tw`flex-row items-center justify-between p-4`}>
+          <View className="flex-row items-center justify-between p-4">
             <Image
               source={require("~/assets/images/logo.png")}
-              style={tw`h-12 w-12`}
+              className="h-12 w-12"
             />
 
             <Menu
               renderer={renderers.Popover}
               rendererProps={{ placement: "bottom" }}
             >
-              <MenuTrigger
-                style={tw`items-center justify-center overflow-hidden rounded-full p-2`}
-              >
+              <RemappedMenuTrigger className="items-center justify-center overflow-hidden rounded-full p-2">
                 <LucideEllipsisVertical size={24} color="#000000" />
-              </MenuTrigger>
+              </RemappedMenuTrigger>
 
-              <MenuOptions optionsContainerStyle={tw`py-2`}>
-                <MenuOption
-                  style={tw`flex-row items-center gap-2 px-3`}
+              <RemappedMenuOptions optionsContainerClassName="py-2">
+                <RemappedMenuOption
+                  className="flex-row items-center gap-2 px-3"
                   onSelect={() =>
                     navigation.navigate("Responders", { screen: "Profile" })
                   }
                 >
                   <LucideUser2 size={16} color="#000000" />
                   <Text>Profile</Text>
-                </MenuOption>
+                </RemappedMenuOption>
 
-                <MenuOption
-                  style={tw`flex-row items-center gap-2 px-3`}
+                <RemappedMenuOption
+                  className="flex-row items-center gap-2 px-3"
                   onSelect={() =>
                     navigation.navigate("Responders", {
                       screen: "Notifications",
@@ -82,10 +92,10 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
                 >
                   <LucideBell size={16} color="#000000" />
                   <Text>Notifications</Text>
-                </MenuOption>
+                </RemappedMenuOption>
 
-                <MenuOption
-                  style={tw`flex-row items-center gap-2 px-3`}
+                <RemappedMenuOption
+                  className="flex-row items-center gap-2 px-3"
                   onSelect={() =>
                     navigation.navigate("Responders", {
                       screen: "TermsOfService",
@@ -94,20 +104,20 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
                 >
                   <LucideListCheck size={16} color="#000000" />
                   <Text>Terms of Service</Text>
-                </MenuOption>
+                </RemappedMenuOption>
 
-                <MenuOption
-                  style={tw`flex-row items-center gap-2 px-3`}
+                <RemappedMenuOption
+                  className="flex-row items-center gap-2 px-3"
                   onSelect={handleLogout}
                 >
                   <LucideLogOut size={16} color="#000000" />
                   <Text>{loading ? "Logging out..." : "Logout"}</Text>
-                </MenuOption>
-              </MenuOptions>
+                </RemappedMenuOption>
+              </RemappedMenuOptions>
             </Menu>
           </View>
 
-          <View style={[tw`flex-1`, style]}>{children}</View>
+          <View className={cn("flex-1", className)}>{children}</View>
         </Background>
       </SafeAreaView>
     </SafeAreaProvider>

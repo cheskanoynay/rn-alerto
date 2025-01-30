@@ -1,14 +1,13 @@
 import React, { useRef, useState } from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { LucideLock, LucideMail } from "lucide-react-native";
-import { Alert, ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, View } from "react-native";
 import Recaptcha, { RecaptchaRef } from "react-native-recaptcha-that-works";
 
 import { Background } from "~/components/background";
 import { Button } from "~/components/button";
 import { Input } from "~/components/input";
 import { Logo } from "~/components/logo";
-import { tw } from "~/lib/tailwind";
 import { useAppDispatch, useAppSelector } from "~/store";
 import { login } from "~/store/auth-slice";
 import { getError } from "~/utils/error";
@@ -28,7 +27,10 @@ const LoginScreen = () => {
       await dispatch(login({ email, password, role: "user" })).unwrap();
 
       StackActions.popToTop();
-      navigation.navigate("User", { screen: "Home" });
+      navigation.navigate("UserStack", {
+        screen: "UserTab",
+        params: { screen: "Home" },
+      });
     } catch (error) {
       const err = getError(error, "Login failed.");
 
@@ -45,20 +47,20 @@ const LoginScreen = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={tw`flex-grow`}>
+    <ScrollView contentContainerClassName="flex-grow">
       <Background
-        style={tw`items-center justify-center gap-8 p-4`}
+        className="items-center justify-center gap-8 p-4"
         gradient={false}
       >
-        <View style={tw`flex-1 items-center justify-center gap-8`}>
+        <View className="flex-1 items-center justify-center gap-8">
           <Logo />
         </View>
 
-        <View style={tw`w-full gap-4`}>
-          <View style={tw`gap-2`}>
+        <View className="w-full gap-4">
+          <View className="gap-2">
             <Input
               label="Email"
-              wrapperStyle={tw`w-full`}
+              wrapperClassName="w-full"
               icon={LucideMail}
               keyboardType="email-address"
               onChangeText={setEmail}
@@ -68,7 +70,7 @@ const LoginScreen = () => {
 
             <Input
               label="Password"
-              wrapperStyle={tw`w-full`}
+              wrapperClassName="w-full"
               icon={LucideLock}
               onChangeText={setPassword}
               value={password}

@@ -19,7 +19,6 @@ import {
 } from "react-native-vision-camera";
 
 import { UserLayout } from "~/components/layout/user-layout";
-import { tw } from "~/lib/tailwind";
 import { UserStackScreenProps } from "~/navigations/user-stack";
 
 const reportText = {
@@ -52,89 +51,87 @@ const VideoCallScreen = () => {
   }, [reqCamPerm, reqMicPerm]);
 
   return (
-    <UserLayout style={tw`relative flex-1`}>
+    <UserLayout className="relative flex-1">
       {hasCamPerm && device && (
-        <View style={tw`absolute bottom-0 left-0 right-0 top-0 h-full w-full`}>
-          <Camera style={tw`h-full w-full`} device={device} isActive={true} />
+        <View className="absolute bottom-0 left-0 right-0 top-0 h-full w-full">
+          <Camera className="h-full w-full" device={device} isActive={true} />
         </View>
       )}
 
-      <View style={tw`flex-1 bg-black/50`}>
-        <View style={tw`flex-1 items-center justify-center gap-4 p-4`}>
-          <View style={tw`rounded-full border border-white p-4`}>
-            <Icon size={64} style={tw`text-white`} />
+      <View className="flex-1 bg-black/50">
+        <View className="flex-1 items-center justify-center gap-4 p-4">
+          <View className="rounded-full border border-white p-4">
+            <Icon size={64} className="text-white" />
           </View>
 
-          <View style={tw`items-center gap-2`}>
-            <Text style={tw`text-center text-white`}>Calling...</Text>
-            <Text style={tw`text-center text-lg text-white`}>
+          <View className="items-center gap-2">
+            <Text className="text-center text-white">Calling...</Text>
+            <Text className="text-center text-lg text-white">
               {reportText[type]}
             </Text>
           </View>
         </View>
 
-        <View
-          style={tw`flex-row items-center justify-center justify-around p-4`}
-        >
-          <View style={tw`overflow-hidden rounded-full`}>
+        <View className="flex-row items-center justify-center justify-around p-4">
+          <View className="overflow-hidden rounded-full">
             <Pressable
-              style={tw`rounded-full border border-white p-4`}
+              className="rounded-full border border-white p-4"
               android_ripple={{
                 color: "#ffffff",
                 borderless: true,
               }}
             >
-              <LucideMessageSquareText size={24} style={tw`text-white`} />
+              <LucideMessageSquareText size={24} className="text-white" />
             </Pressable>
           </View>
 
-          <View style={tw`overflow-hidden rounded-full`}>
+          <View className="overflow-hidden rounded-full">
             <Pressable
-              style={tw`rounded-full border border-white p-4`}
+              className="rounded-full border border-white p-4"
               android_ripple={{
                 color: "#ffffff",
                 borderless: true,
               }}
             >
-              <LucideMicOff size={24} style={tw`text-white`} />
+              <LucideMicOff size={24} className="text-white" />
             </Pressable>
           </View>
 
-          <View style={tw`overflow-hidden rounded-full`}>
+          <View className="overflow-hidden rounded-full">
             <Pressable
-              style={tw`rounded-full border border-white p-4`}
+              className="rounded-full border border-white p-4"
               android_ripple={{
                 color: "#ffffff",
                 borderless: true,
               }}
             >
-              <LucideVolume2 size={24} style={tw`text-white`} />
+              <LucideVolume2 size={24} className="text-white" />
             </Pressable>
           </View>
 
-          <View style={tw`overflow-hidden rounded-full`}>
+          <View className="overflow-hidden rounded-full">
             <Pressable
-              style={tw`rounded-full border border-white p-4`}
+              className="rounded-full border border-white p-4"
               android_ripple={{
                 color: "#ffffff",
                 borderless: true,
               }}
             >
-              <LucideEllipsisVertical size={24} style={tw`text-white`} />
+              <LucideEllipsisVertical size={24} className="text-white" />
             </Pressable>
           </View>
         </View>
 
-        <View style={tw`items-center justify-center p-4`}>
-          <View style={tw`overflow-hidden rounded-full`}>
+        <View className="items-center justify-center p-4">
+          <View className="overflow-hidden rounded-full">
             <Pressable
-              style={tw`rounded-full border border-white bg-persian-red-600 p-4`}
+              className="bg-persian-red-600 rounded-full border border-white p-4"
               android_ripple={{
                 color: "#ffffff",
                 borderless: true,
               }}
             >
-              <LucidePhone size={32} style={tw`text-white`} />
+              <LucidePhone size={32} className="text-white" />
             </Pressable>
           </View>
         </View>

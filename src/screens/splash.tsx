@@ -4,7 +4,6 @@ import { Text } from "react-native";
 
 import { Background } from "~/components/background";
 import { Logo } from "~/components/logo";
-import { tw } from "~/lib/tailwind";
 import { useAppSelector } from "~/store";
 
 const SplashScreen = () => {
@@ -25,14 +24,16 @@ const SplashScreen = () => {
     switch (userData?.role) {
       case "responder": {
         console.log("Redirecting as a responder.");
-        navigation.dispatch(StackActions.replace("Responders"));
+        navigation.dispatch(StackActions.replace("ResponderStack"));
 
         break;
       }
 
       case "user": {
         console.log("Redirecting as a user.");
-        navigation.dispatch(StackActions.replace("User"));
+        navigation.dispatch(
+          StackActions.replace("UserStack", { screen: "UserTab" }),
+        );
 
         break;
       }
@@ -46,7 +47,7 @@ const SplashScreen = () => {
   }, [isLoaded, navigation, userData]);
 
   return (
-    <Background style={tw`items-center justify-center gap-4`} gradient={false}>
+    <Background className="items-center justify-center gap-4" gradient={false}>
       <Logo />
 
       <Text>Loading...</Text>

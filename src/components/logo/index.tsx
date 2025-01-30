@@ -1,31 +1,29 @@
 import React from "react";
 import { Image, Text, View, ViewProps } from "react-native";
 
-import { tw } from "~/lib/tailwind";
+import { cn } from "~/utils/style";
 
 interface LogoProps extends ViewProps {
   hideText?: boolean;
 }
 
 const Logo = (props: LogoProps) => {
-  const { style, hideText = false, ...rest } = props;
+  const { className, hideText = false, ...rest } = props;
 
   return (
-    <View {...rest} style={[tw`items-center justify-center`, style]}>
+    <View {...rest} className={cn("items-center justify-center", className)}>
       <Image
         source={require("~/assets/images/logo.png")}
-        style={tw`h-32 w-32`}
+        className="h-32 w-32"
       />
 
       {!hideText && (
-        <Text
-          style={tw`font-kaisei-decol-medium text-3xl tracking-widest text-persian-red-600`}
-        >
+        <Text className="font-kaisei-decol-medium text-3xl tracking-widest text-persian-red-600">
           ALERTO
         </Text>
       )}
 
-      <Text style={tw`text-center text-persian-red-600`}>
+      <Text className="text-center text-persian-red-600">
         An Emergency Response Mobile Application
       </Text>
     </View>

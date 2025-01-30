@@ -1,34 +1,27 @@
 import React, { ReactNode } from "react";
-import { Image, StyleProp, ViewStyle } from "react-native";
+import { Image } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import { tw } from "~/lib/tailwind";
+import { cn } from "~/utils/style";
 
 interface BackgroundProps {
+  className?: string;
   children?: ReactNode;
-  style?: StyleProp<ViewStyle>;
   gradient?: boolean;
 }
 
 const Background = (props: BackgroundProps) => {
-  const { children, style, gradient = true } = props;
+  const { className, children, gradient = true } = props;
 
   return (
     <>
       <Image
+        className="absolute left-1/2 top-1/2 h-[512px] w-[512px] -translate-x-1/2 -translate-y-1/2"
         source={require("~/assets/images/logo.png")}
-        style={[
-          tw`absolute left-1/2 top-1/2`,
-          {
-            width: 512,
-            height: 512,
-            transform: [{ translateX: -256 }, { translateY: -256 }],
-          },
-        ]}
       />
 
       <LinearGradient
-        style={[tw`h-full w-full`, style]}
+        className={cn("h-full w-full", className)}
         colors={
           gradient
             ? ["#fe877af2", "#fd9f92f2", "#fad0c4f2"]

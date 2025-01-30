@@ -8,7 +8,6 @@ import { Button } from "~/components/button";
 import { Input } from "~/components/input";
 import { UserLayout } from "~/components/layout/user-layout";
 import { createRelative, getUsersByRealtime } from "~/lib/firebase/firestore";
-import { tw } from "~/lib/tailwind";
 import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";
 import { getError } from "~/utils/error";
@@ -64,7 +63,7 @@ const AddRelativesScreen = () => {
 
   return (
     <UserLayout title="My Relatives">
-      <View style={tw`p-4`}>
+      <View className="p-4">
         <Input
           icon={LucideSearch}
           placeholder="Search..."
@@ -74,24 +73,24 @@ const AddRelativesScreen = () => {
       </View>
 
       {loading ? (
-        <View style={tw`flex-1 items-center justify-center p-4`}>
+        <View className="flex-1 items-center justify-center p-4">
           <Text>Loading...</Text>
         </View>
       ) : (
-        <ScrollView contentContainerStyle={tw`gap-2 p-4`}>
+        <ScrollView contentContainerClassName="gap-2 p-4">
           {users.map((user) => (
             <View
               key={`user-${user.id}`}
-              style={tw`flex-row items-center justify-between gap-2`}
+              className="flex-row items-center justify-between gap-2"
             >
-              <View style={tw`flex-row items-center gap-2`}>
-                <View style={tw`h-12 w-12 rounded-full bg-gray-300`} />
+              <View className="flex-row items-center gap-2">
+                <View className="h-12 w-12 rounded-full bg-gray-300" />
 
                 <Text>{user.name}</Text>
               </View>
 
               <TouchableOpacity
-                style={tw`h-12 w-12 items-center justify-center rounded-full bg-persian-red-600`}
+                className="h-12 w-12 items-center justify-center rounded-full bg-persian-red-600"
                 onPress={() => setIsVisible(user.id)}
               >
                 <LucidePlus size={16} color="#ffffff" />
@@ -102,7 +101,7 @@ const AddRelativesScreen = () => {
       )}
 
       <Modal isVisible={isVisible.length > 0}>
-        <View style={tw`gap-4 rounded-2xl bg-white p-4`}>
+        <View className="gap-4 rounded-2xl bg-white p-4">
           <Text>What's your relationship with this relative?</Text>
 
           <Input
@@ -111,9 +110,9 @@ const AddRelativesScreen = () => {
             onChangeText={setRelationship}
           />
 
-          <View style={tw`flex-row gap-2`}>
+          <View className="flex-row gap-2">
             <Button
-              wrapperStyle={tw`flex-1`}
+              wrapperClassName="flex-1"
               onPress={() => setIsVisible("")}
               disabled={saving}
             >
@@ -121,7 +120,7 @@ const AddRelativesScreen = () => {
             </Button>
 
             <Button
-              wrapperStyle={tw`flex-1`}
+              wrapperClassName="flex-1"
               onPress={() => handleAddRelative(isVisible)}
               loading={saving}
             >
