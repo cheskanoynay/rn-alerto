@@ -14,11 +14,8 @@ const HomeScreen = () => {
   console.log("ASDOASJDLKASJDLj");
 
   return (
-    <Background
-      className="items-center justify-between gap-8 p-4"
-      gradient={false}
-    >
-      <View className="flex-1 items-center justify-center gap-8">
+    <Background className="justify-center gap-8 p-4" gradient={false}>
+      <View className="items-center justify-center">
         <Logo />
       </View>
 
@@ -42,6 +39,7 @@ const HomeScreen = () => {
             >
               I'm a Responder
             </Button>
+
             <Button
               wrapperClassName="w-full"
               onPress={() =>

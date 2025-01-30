@@ -1,13 +1,26 @@
 import React from "react";
+import { StackActions, useNavigation } from "@react-navigation/native";
 import { ChevronRight } from "lucide-react-native";
 import { Pressable, Text, View } from "react-native";
 
 import { Button } from "~/components/button";
 import { UserLayout } from "~/components/layout/user-layout";
-import { useAppSelector } from "~/store";
+import { useAppDispatch, useAppSelector } from "~/store";
+import { logout } from "~/store/auth-slice";
 
 const MenuScreen = () => {
   const { userData } = useAppSelector((state) => state.user);
+  const { loading } = useAppSelector((state) => state.auth);
+
+  const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+
+  const handleLogout = async () => {
+    await dispatch(logout());
+
+    StackActions.popToTop();
+    navigation.navigate("Splash");
+  };
 
   return (
     <UserLayout className="gap-4 p-4" title="Menu">
@@ -27,7 +40,9 @@ const MenuScreen = () => {
       </Pressable>
 
       <View className="flex-1 justify-end">
-        <Button>Logout</Button>
+        <Button loading={loading} onPress={handleLogout}>
+          Logout
+        </Button>
       </View>
     </UserLayout>
   );

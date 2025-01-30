@@ -37,11 +37,8 @@ const RegistrationScreen = () => {
 
   return (
     <ScrollView contentContainerClassName="flex-grow">
-      <Background
-        className="items-center justify-center gap-8 p-4"
-        gradient={false}
-      >
-        <View className="flex-1 items-center justify-center gap-8">
+      <Background className="justify-center gap-8 p-4" gradient={false}>
+        <View className="items-center justify-center">
           <Logo />
         </View>
 

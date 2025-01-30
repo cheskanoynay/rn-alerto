@@ -10,7 +10,7 @@ const ReportScreen = () => {
 
   return (
     <UserLayout className="justify-center gap-8" title="Report">
-      <View className="items-center justify-center p-4">
+      <View className="items-center justify-center">
         <Logo />
       </View>
 

@@ -27,7 +27,7 @@ const LoginScreen = () => {
       await dispatch(login({ email, password, role: "responder" })).unwrap();
 
       StackActions.popToTop();
-      navigation.navigate("Responders", { screen: "Home" });
+      navigation.navigate("ResponderStack", { screen: "Home" });
     } catch (error) {
       const err = getError(error, "Login failed.");
 
@@ -46,10 +46,10 @@ const LoginScreen = () => {
   return (
     <ScrollView contentContainerClassName="flex-grow">
       <Background
-        className="items-center justify-center gap-8 p-4"
+        className="justify-center gap-8 p-4"
         gradient={false}
       >
-        <View className="flex-1 items-center justify-center gap-8">
+        <View className="items-center justify-center">
           <Logo />
         </View>
 

@@ -18,10 +18,10 @@ const PreRegistrationScreen = () => {
 
   return (
     <Background
-      className="h-full items-center justify-center gap-8 p-4"
+      className="justify-center gap-8 p-4"
       gradient={false}
     >
-      <View className="flex-1 items-center justify-center gap-8">
+      <View className="items-center justify-center">
         <Logo />
       </View>
 
