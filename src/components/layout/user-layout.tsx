@@ -59,25 +59,23 @@ const UserLayout = (props: UserLayoutProps) => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView className={`h-full w-full`}>
+      <SafeAreaView className="h-full w-full">
         <Background gradient={false}>
-          <View className={`flex-row items-center justify-between p-4`}>
-            <View className={`w-1/5`}>
-              <Image
+          <View className="flex-row items-center justify-between border-b border-b-gray-300 px-4 h-16">
+            <View className="w-1/5">
+              {/* <Image
                 source={require("~/assets/images/logo.png")}
-                className={`h-12 w-12`}
-              />
+                className="h-12 w-12"
+              /> */}
             </View>
 
-            <View className={`flex-1`}>
+            <View className="flex-1">
               {!!title && (
-                <Text className={`text-center text-lg text-white`}>
-                  {title}
-                </Text>
+                <Text className="text-center text-lg text-black">{title}</Text>
               )}
             </View>
 
-            <View className={`w-1/5 flex-row justify-end`}>
+            <View className="w-1/5 flex-row justify-end">
               {/* <Menu
                 renderer={renderers.Popover}
                 rendererProps={{ placement: "bottom" }}
@@ -120,7 +118,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   </MenuOption>
 
                   <MenuOption
-                    className={`flex-row items-center gap-2 px-3`}
+                    className="flex-row items-center gap-2 px-3"
                     onSelect={() =>
                       navigation.navigate("User", { screen: "Notifications" })
                     }
@@ -130,7 +128,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   </MenuOption>
 
                   <MenuOption
-                    className={`flex-row items-center gap-2 px-3`}
+                    className="flex-row items-center gap-2 px-3"
                     onSelect={() =>
                       navigation.navigate("User", { screen: "TermsOfService" })
                     }
@@ -140,7 +138,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   </MenuOption>
 
                   <MenuOption
-                    className={`flex-row items-center gap-2 px-3`}
+                    className="flex-row items-center gap-2 px-3"
                     onSelect={() =>
                       navigation.navigate("User", { screen: "History" })
                     }
@@ -150,7 +148,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   </MenuOption>
 
                   <MenuOption
-                    className={`flex-row items-center gap-2 px-3`}
+                    className="flex-row items-center gap-2 px-3"
                     onSelect={handleLogout}
                   >
                     <LucideLogOut size={16} color="#000000" />

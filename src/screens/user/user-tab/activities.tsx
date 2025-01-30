@@ -97,7 +97,7 @@ const ActivitiesScreen = () => {
               <TouchableOpacity
                 onPress={() => handleRedirect(r.id, r.type, r.agency)}
               >
-                <LucideEye className="text-white" size={20} />
+                <LucideEye className="text-white" color="#ffffff" size={20} />
               </TouchableOpacity>
             </View>
           </View>

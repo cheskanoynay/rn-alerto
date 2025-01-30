@@ -76,7 +76,7 @@ const RegistrationScreen = () => {
               placeholder="Enter password"
             />
 
-            <Text className="text-center text-gray-500">
+            <Text className="text-center text-lg text-gray-500">
               By tapping "Register", you agree to the App's{" "}
               <Text className="`underline`">Terms and Conditions</Text>.
             </Text>

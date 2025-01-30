@@ -1,8 +1,6 @@
 import React from "react";
 import { CircleAlert } from "lucide-react-native";
 
-import { cn } from "~/utils/style";
-
 interface TabIconCircleAlertProps {
   focused: boolean;
   color: string;
@@ -12,11 +10,7 @@ interface TabIconCircleAlertProps {
 const TabIconCircleAlert = (props: TabIconCircleAlertProps) => {
   const { focused } = props;
 
-  return (
-    <CircleAlert
-      className={cn("h-4 w-4 text-gray-600", focused && "text-persian-red-600")}
-    />
-  );
+  return <CircleAlert color={focused ? "#ca3433" : "#000000"} />;
 };
 
 export { TabIconCircleAlert };

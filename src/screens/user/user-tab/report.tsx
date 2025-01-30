@@ -9,8 +9,8 @@ const ReportScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <UserLayout className="">
-      <View className="flex-1 items-center justify-center p-4">
+    <UserLayout className="justify-center gap-8" title="Report">
+      <View className="items-center justify-center p-4">
         <Logo />
       </View>
 

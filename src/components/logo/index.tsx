@@ -23,7 +23,7 @@ const Logo = (props: LogoProps) => {
         </Text>
       )}
 
-      <Text className="text-center text-persian-red-600">
+      <Text className="text-center text-persian-red-600 text-lg">
         An Emergency Response Mobile Application
       </Text>
     </View>

@@ -10,12 +10,16 @@ import {
   StackScreenProps,
 } from "@react-navigation/stack";
 
+import { ResponderTypeSchema } from "~/schema/user";
+import { AudioCallScreen } from "~/screens/user/audio-call";
 import { LoginScreen } from "~/screens/user/login";
+import { MessagesScreen } from "~/screens/user/messages";
 import { PreRegistrationScreen } from "~/screens/user/pre-registration";
 import { RegistrationScreen } from "~/screens/user/registration";
 import { TermsOfServiceScreen } from "~/screens/user/terms-of-service";
+import { VideoCallScreen } from "~/screens/user/video-call";
 import { useAppSelector } from "~/store";
-import { RootStackParamList, RootStackScreenProps } from "./root-stack";
+import { RootStackParamList, RootStackScreenProps } from "..";
 import { UserTab, UserTabParamList } from "./user-tab";
 
 export type UserStackParamList = {
@@ -24,6 +28,9 @@ export type UserStackParamList = {
   Registration: undefined;
   Login: undefined;
   TermsOfService: undefined;
+  Messages: { id: string; type: Exclude<ResponderTypeSchema, ""> };
+  VideoCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
+  AudioCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
 };
 export type UserStackScreenProps<T extends keyof UserStackParamList> =
   CompositeScreenProps<
@@ -63,6 +70,9 @@ const UserStack = () => {
         </>
       )}
       <Stack.Screen name="TermsOfService" component={TermsOfServiceScreen} />
+      <Stack.Screen name="Messages" component={MessagesScreen} />
+      <Stack.Screen name="VideoCall" component={VideoCallScreen} />
+      <Stack.Screen name="AudioCall" component={AudioCallScreen} />
     </Stack.Navigator>
   );
 };

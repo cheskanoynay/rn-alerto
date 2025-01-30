@@ -15,7 +15,7 @@ import { UserLayout } from "~/components/layout/user-layout";
 import { sendNotification } from "~/lib/api";
 import { createReport } from "~/lib/firebase/firestore";
 import { getGeolocation } from "~/lib/geolocation";
-import { UserStackScreenProps } from "~/navigations/user-stack";
+import { UserStackScreenProps } from "~/navigations/root-stack/user-stack";
 import { ReportTypeSchema } from "~/schema/report";
 import { useAppSelector } from "~/store";
 import { getError } from "~/utils/error";

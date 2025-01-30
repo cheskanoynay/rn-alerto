@@ -64,7 +64,7 @@ const PreRegistrationScreen = () => {
             </View>
 
             <View className="justify-center">
-              <Text className="text-center text-gray-500">
+              <Text className="text-center text-gray-500 text-lg">
                 By tapping "I Agree", you agree to the App's{" "}
                 <Text
                   className="underline"
@@ -100,7 +100,7 @@ const PreRegistrationScreen = () => {
           </Button>
         </View>
 
-        <Text className="text-center text-gray-500">
+        <Text className="text-center text-gray-500 text-lg">
           By tapping "Register", you agree to the App's{" "}
           <Text
             className="underline"

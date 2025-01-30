@@ -47,7 +47,7 @@ const SplashScreen = () => {
   }, [isLoaded, navigation, userData]);
 
   return (
-    <Background className="items-center justify-center gap-4" gradient={false}>
+    <Background className="items-center justify-center gap-4 p-4" gradient={false}>
       <Logo />
 
       <Text>Loading...</Text>

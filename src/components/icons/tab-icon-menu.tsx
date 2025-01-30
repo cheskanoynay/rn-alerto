@@ -1,8 +1,6 @@
 import React from "react";
 import { Menu } from "lucide-react-native";
 
-import { cn } from "~/utils/style";
-
 interface TabIconMenuProps {
   focused: boolean;
   color: string;
@@ -11,12 +9,9 @@ interface TabIconMenuProps {
 
 const TabIconMenu = (props: TabIconMenuProps) => {
   const { focused } = props;
+  console.log(focused);
 
-  return (
-    <Menu
-      className={cn("h-4 w-4 text-gray-600", focused && "text-persian-red-600")}
-    />
-  );
+  return <Menu color={focused ? "#ca3433" : "#000000"} />;
 };
 
 export { TabIconMenu };

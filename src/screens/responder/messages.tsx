@@ -12,7 +12,7 @@ import {
   getMessagesByRealtime,
   getUsersByRealtime,
 } from "~/lib/firebase/firestore";
-import { UserStackScreenProps } from "~/navigations/user-stack";
+import { UserStackScreenProps } from "~/navigations/root-stack/user-stack";
 import { MessageSchema } from "~/schema/message";
 import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";

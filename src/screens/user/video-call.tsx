@@ -19,7 +19,7 @@ import {
 } from "react-native-vision-camera";
 
 import { UserLayout } from "~/components/layout/user-layout";
-import { UserStackScreenProps } from "~/navigations/user-stack";
+import { UserStackScreenProps } from "~/navigations/root-stack/user-stack";
 
 const reportText = {
   police: "PNP",
