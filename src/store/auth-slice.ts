@@ -51,6 +51,7 @@ export const register = createAsyncThunk(
         status: "unconfirmed",
       });
 
+      await user.sendEmailVerification();
       await auth().signOut();
 
       return null;
@@ -82,11 +83,20 @@ export const login = createAsyncThunk(
       if (userMaybe.status !== "confirmed")
         return thunkApi.rejectWithValue(
           userMaybe.status === "revoked"
-            ? "User access is revoked."
-            : "User is not yet confirmed.",
+            ? "User access is revoked by admin."
+            : "User is not yet confirmed by admin.",
         );
 
       const { user } = await auth().signInWithEmailAndPassword(email, password);
+
+      if (!user.emailVerified) {
+        await user.sendEmailVerification();
+        await auth().signOut();
+
+        return thunkApi.rejectWithValue(
+          "User email is not yet confirmed. Please check your email.",
+        );
+      }
 
       return user;
     } catch (error) {

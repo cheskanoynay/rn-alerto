@@ -1,6 +1,6 @@
 import React from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
-import { ChevronRight, History } from "lucide-react-native";
+import { LucideHistory, LucidePhone } from "lucide-react-native";
 import { Pressable, Text, View } from "react-native";
 
 import { Button } from "~/components/button";
@@ -24,7 +24,7 @@ const MenuScreen = () => {
 
   return (
     <UserLayout className="gap-4 p-4" title="Menu">
-      <Pressable
+      {/* <Pressable
         className="h-20 flex-row items-center justify-between gap-4 rounded-2xl border border-gray-300 p-2 active:opacity-50"
         onPress={() =>
           navigation.navigate("UserStack", {
@@ -44,20 +44,26 @@ const MenuScreen = () => {
         </View>
 
         <ChevronRight />
-      </Pressable>
+      </Pressable> */}
 
-      <View className="flex-1 justify-end">
+      <View className="flex-1 gap-2">
         <Pressable
-          className="rounded-2xl border border-gray-300 bg-white p-2 active:opacity-50"
+          className="gap-2 rounded-2xl border border-gray-300 bg-white p-2 active:opacity-50"
           onPress={() =>
             navigation.navigate("UserStack", {
               screen: "Activities",
             })
           }
         >
-          <History />
+          <LucideHistory />
 
           <Text>Recent Activities</Text>
+        </Pressable>
+
+        <Pressable className="gap-2 rounded-2xl border border-gray-300 bg-white p-2 active:opacity-50">
+          <LucidePhone />
+
+          <Text>Hotline Numbers</Text>
         </Pressable>
       </View>
 

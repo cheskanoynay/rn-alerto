@@ -51,10 +51,19 @@ const VideoCallScreen = () => {
   }, [reqCamPerm, reqMicPerm]);
 
   return (
-    <UserLayout className="relative flex-1">
+    <UserLayout
+      className="relative flex-1"
+      title={`${reportText[type]} Video Call Report`}
+      hideProfile
+    >
       {hasCamPerm && device && (
         <View className="absolute bottom-0 left-0 right-0 top-0 h-full w-full">
-          <Camera className="h-full w-full" device={device} isActive={true} />
+          <Camera
+            className="h-full w-full"
+            device={device}
+            isActive={true}
+            style={{ width: "100%", height: "100%" }}
+          />
         </View>
       )}
 
@@ -125,7 +134,7 @@ const VideoCallScreen = () => {
         <View className="items-center justify-center p-4">
           <View className="overflow-hidden rounded-full">
             <Pressable
-              className="bg-persian-red-600 rounded-full border border-white p-4"
+              className="rounded-full border border-white bg-persian-red-600 p-4"
               android_ripple={{
                 color: "#ffffff",
                 borderless: true,

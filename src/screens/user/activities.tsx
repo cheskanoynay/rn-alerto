@@ -74,10 +74,14 @@ const ActivitiesScreen = () => {
 
   return (
     <UserLayout title="Recent Activities">
-      <ScrollView contentContainerClassName="gap-2 p-4">
+      <ScrollView contentContainerClassName="gap-2 p-4 grow">
         {loading ? (
           <View className="flex-1 items-center justify-center">
             <Text>Loading...</Text>
+          </View>
+        ) : sortedReports.length === 0 ? (
+          <View className="flex-1 items-center justify-center">
+            <Text>No activities yet.</Text>
           </View>
         ) : (
           sortedReports.map((r) => (

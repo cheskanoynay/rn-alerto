@@ -1,20 +1,8 @@
 import React, { ReactNode } from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
-import {
-  LucideBell,
-  LucideEllipsisVertical,
-  LucideHistory,
-  LucideList,
-  LucideListCheck,
-  LucideLogOut,
-  LucideUser2,
-  LucideUsers2,
-} from "lucide-react-native";
 import { remapProps } from "nativewind";
-import { Image, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import {
-  Menu,
-  renderers,
   MenuOption as RNPMMenuOption,
   MenuOptions as RNPMMenuOptions,
   MenuTrigger as RNPMMenuTrigger,
@@ -41,10 +29,11 @@ interface UserLayoutProps {
   className?: string;
   children?: ReactNode;
   title?: string;
+  hideProfile?: boolean;
 }
 
 const UserLayout = (props: UserLayoutProps) => {
-  const { className, children, title } = props;
+  const { className, children, title, hideProfile = false } = props;
 
   const navigation = useNavigation();
   const { loading } = useAppSelector((state) => state.auth);
@@ -61,7 +50,7 @@ const UserLayout = (props: UserLayoutProps) => {
     <SafeAreaProvider>
       <SafeAreaView className="h-full w-full">
         <Background gradient={false}>
-          <View className="flex-row items-center justify-between border-b border-b-gray-300 px-4 h-16">
+          <View className="h-16 flex-row items-center justify-between border-b border-b-gray-300 px-4">
             <View className="w-1/5">
               {/* <Image
                 source={require("~/assets/images/logo.png")}
@@ -76,6 +65,18 @@ const UserLayout = (props: UserLayoutProps) => {
             </View>
 
             <View className="w-1/5 flex-row justify-end">
+              {hideProfile === false && (
+                <Pressable
+                  className="active:opacity-50"
+                  onPress={() =>
+                    navigation.navigate("UserStack", { screen: "Profile" })
+                  }
+                >
+                  <View className="h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-gray-300">
+                    <Text>P</Text>
+                  </View>
+                </Pressable>
+              )}
               {/* <Menu
                 renderer={renderers.Popover}
                 rendererProps={{ placement: "bottom" }}

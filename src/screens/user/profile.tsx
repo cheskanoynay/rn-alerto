@@ -63,7 +63,7 @@ const ProfileScreen = () => {
   }, [userData]);
 
   return (
-    <UserLayout title="Profile">
+    <UserLayout title="Profile" hideProfile>
       <ScrollView contentContainerClassName="gap-4 p-4">
         <View className="items-center justify-center">
           <View className="h-32 w-32 rounded-full bg-gray-300" />

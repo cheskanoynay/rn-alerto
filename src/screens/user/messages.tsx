@@ -18,6 +18,13 @@ import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";
 import { getError } from "~/utils/error";
 
+const reportText = {
+  police: "PNP",
+  medical: "LDRRMO",
+  fire: "BFP",
+  "": "",
+};
+
 const RemappedSend = remapProps(Send, {
   containerClassName: "containerStyle",
 });
@@ -30,7 +37,7 @@ const MessagesScreen = () => {
   const { userData } = useAppSelector((state) => state.user);
 
   const { params } = useRoute<UserStackScreenProps<"Messages">["route"]>();
-  const { id } = params;
+  const { id, type } = params;
 
   const parsedMessages = _.sortBy(
     messages
@@ -100,7 +107,11 @@ const MessagesScreen = () => {
   }, [messages]);
 
   return (
-    <UserLayout className="flex-1">
+    <UserLayout
+      className="flex-1"
+      title={`${reportText[type]} Chat Report`}
+      hideProfile
+    >
       <GiftedChat
         messages={parsedMessages}
         onSend={handleSendMessage}

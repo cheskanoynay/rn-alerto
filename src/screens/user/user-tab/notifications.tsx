@@ -5,8 +5,8 @@ import { UserLayout } from "~/components/layout/user-layout";
 
 const NotificationsScreen = () => {
   return (
-    <UserLayout title="Notifications">
-      <Text>Notifications Screen Under Construction</Text>
+    <UserLayout title="Notifications" className="gap-4 p-4">
+      <Text>List of notifications...</Text>
     </UserLayout>
   );
 };

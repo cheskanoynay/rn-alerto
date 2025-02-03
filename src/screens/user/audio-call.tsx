@@ -44,7 +44,11 @@ const AudioCallScreen = () => {
   }, [reqMicPerm]);
 
   return (
-    <UserLayout className="flex-1">
+    <UserLayout
+      className="flex-1"
+      title={`${reportText[type]} Phone Call Report`}
+      hideProfile
+    >
       <View className="flex-1 items-center justify-center gap-4 p-4">
         <View className="rounded-full border p-4">
           <Icon size={64} className="text-black" />

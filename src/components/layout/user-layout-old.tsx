@@ -90,27 +90,27 @@ const UserLayout = (props: UserLayoutProps) => {
                   <MenuOption
                     className="flex-row items-center gap-2 px-3"
                     onSelect={() =>
-                      navigation.navigate("User", { screen: "Profile" })
+                      navigation.navigate("UserStack", { screen: "Profile" })
                     }
                   >
                     <LucideUser2 size={16} color="#000000" />
                     <Text>Profile</Text>
                   </MenuOption>
 
-                  <MenuOption
+                  {/* <MenuOption
                     className="flex-row items-center gap-2 px-3"
                     onSelect={() =>
-                      navigation.navigate("User", { screen: "Relatives" })
+                      navigation.navigate("UserStack", { screen: "Relatives" })
                     }
                   >
                     <LucideUsers2 size={16} color="#000000" />
                     <Text>My Relatives</Text>
-                  </MenuOption>
+                  </MenuOption> */}
 
                   <MenuOption
                     className="flex-row items-center gap-2 px-3"
                     onSelect={() =>
-                      navigation.navigate("User", {
+                      navigation.navigate("UserStack", {
                         screen: "RecentActivities",
                       })
                     }
@@ -122,7 +122,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   <MenuOption
                     className={`flex-row items-center gap-2 px-3`}
                     onSelect={() =>
-                      navigation.navigate("User", { screen: "Notifications" })
+                      navigation.navigate("UserStack", { screen: "Notifications" })
                     }
                   >
                     <LucideBell size={16} color="#000000" />
@@ -132,7 +132,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   <MenuOption
                     className={`flex-row items-center gap-2 px-3`}
                     onSelect={() =>
-                      navigation.navigate("User", { screen: "TermsOfService" })
+                      navigation.navigate("UserStack", { screen: "TermsOfService" })
                     }
                   >
                     <LucideListCheck size={16} color="#000000" />
@@ -142,7 +142,7 @@ const UserLayout = (props: UserLayoutProps) => {
                   <MenuOption
                     className={`flex-row items-center gap-2 px-3`}
                     onSelect={() =>
-                      navigation.navigate("User", { screen: "History" })
+                      navigation.navigate("UserStack", { screen: "History" })
                     }
                   >
                     <LucideHistory size={16} color="#000000" />

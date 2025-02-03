@@ -99,7 +99,11 @@ const ReportTypeScreen = () => {
   };
 
   return (
-    <UserLayout className="flex-1">
+    <UserLayout
+      className="flex-1"
+      title={`${reportText[type]} Report`}
+      hideProfile
+    >
       <View className="flex-1 justify-center gap-8 p-4">
         <View className="w-full flex-1 items-center justify-center gap-2">
           <Image source={imageSrc} className="h-42 w-42" />

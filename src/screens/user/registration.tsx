@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { StackActions, useNavigation } from "@react-navigation/native";
 import { LucideLock, LucideMail, LucideUser2 } from "lucide-react-native";
 import { Alert, ScrollView, Text, View } from "react-native";
 
@@ -24,10 +24,10 @@ const RegistrationScreen = () => {
     try {
       await dispatch(register({ email, password, name })).unwrap();
 
-      Alert.alert("Success", "Please wait for admin to confirm you account.");
+      Alert.alert("Success", "Please wait for admin to confirm your account.");
 
-      // StackActions.popToTop();
-      // navigation.navigate("User", { screen: "Home" });
+      StackActions.popToTop();
+      navigation.navigate("Splash");
     } catch (error) {
       const err = getError(error, "Registration failed.");
 
