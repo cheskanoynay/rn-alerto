@@ -9,7 +9,7 @@ const ReportScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <UserLayout className="justify-center gap-8" title="Report">
+    <UserLayout className="justify-center gap-8 p-4" title="Report">
       <View className="items-center justify-center">
         <Logo />
       </View>
@@ -53,8 +53,8 @@ const ReportScreen = () => {
                 borderless: true,
               }}
               onPress={() =>
-                navigation.navigate("User", {
-                  screen: "Report",
+                navigation.navigate("UserStack", {
+                  screen: "ReportType",
                   params: { type: "police" },
                 })
               }
@@ -78,8 +78,8 @@ const ReportScreen = () => {
                 borderless: true,
               }}
               onPress={() =>
-                navigation.navigate("User", {
-                  screen: "Report",
+                navigation.navigate("UserStack", {
+                  screen: "ReportType",
                   params: { type: "medical" },
                 })
               }
@@ -103,8 +103,8 @@ const ReportScreen = () => {
                 borderless: true,
               }}
               onPress={() =>
-                navigation.navigate("User", {
-                  screen: "Report",
+                navigation.navigate("UserStack", {
+                  screen: "ReportType",
                   params: { type: "fire" },
                 })
               }

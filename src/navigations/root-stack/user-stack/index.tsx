@@ -18,6 +18,7 @@ import { MessagesScreen } from "~/screens/user/messages";
 import { PreRegistrationScreen } from "~/screens/user/pre-registration";
 import { ProfileScreen } from "~/screens/user/profile";
 import { RegistrationScreen } from "~/screens/user/registration";
+import { ReportTypeScreen } from "~/screens/user/report-type";
 import { TermsOfServiceScreen } from "~/screens/user/terms-of-service";
 import { VideoCallScreen } from "~/screens/user/video-call";
 import { useAppSelector } from "~/store";
@@ -35,6 +36,7 @@ export type UserStackParamList = {
   AudioCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
   Profile: undefined;
   Activities: undefined;
+  ReportType: { type: Exclude<ResponderTypeSchema, ""> };
 };
 export type UserStackScreenProps<T extends keyof UserStackParamList> =
   CompositeScreenProps<
@@ -79,6 +81,7 @@ const UserStack = () => {
       <Stack.Screen name="AudioCall" component={AudioCallScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Activities" component={ActivitiesScreen} />
+      <Stack.Screen name="ReportType" component={ReportTypeScreen} />
     </Stack.Navigator>
   );
 };

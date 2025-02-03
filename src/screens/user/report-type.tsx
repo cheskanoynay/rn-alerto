@@ -38,11 +38,11 @@ const reportAgencyImages = {
   fire: require("~/assets/images/bfp.png"),
 };
 
-const ReportScreen = () => {
+const ReportTypeScreen = () => {
   const [loading, setLoading] = useState<ReportTypeSchema | null>(null);
 
   const navigation = useNavigation();
-  const { params } = useRoute<UserStackScreenProps<"Report">["route"]>();
+  const { params } = useRoute<UserStackScreenProps<"ReportType">["route"]>();
   const { type } = params;
 
   const { userData } = useAppSelector((state) => state.user);
@@ -85,7 +85,7 @@ const ReportScreen = () => {
         typeId: reportId,
       });
 
-      navigation.navigate("User", {
+      navigation.navigate("UserStack", {
         screen: "Messages",
         params: { id: reportId, type },
       });
@@ -109,34 +109,37 @@ const ReportScreen = () => {
 
         <View className="w-full gap-2">
           <Button
+            className="gap-2"
             loading={loading === "video"}
             onPress={() =>
-              navigation.navigate("User", {
+              navigation.navigate("UserStack", {
                 screen: "VideoCall",
                 params: { id: "", type },
               })
             }
           >
-            <LucideVideo size={20} className="text-white" />
+            <LucideVideo className="text-white" color="#ffffff" />
 
             <Text className="text-center text-white">Video Call</Text>
           </Button>
 
           <Button
+            className="gap-2"
             loading={loading === "voice"}
             onPress={() =>
-              navigation.navigate("User", {
+              navigation.navigate("UserStack", {
                 screen: "AudioCall",
                 params: { id: "", type },
               })
             }
           >
-            <LucidePhone size={20} className="text-white" />
+            <LucidePhone className="text-white" color="#ffffff" />
 
             <Text className="text-center text-white">Phone Call</Text>
           </Button>
 
           <Button
+            className="gap-2"
             loading={loading === "message"}
             onPress={() =>
               Alert.alert(
@@ -154,7 +157,7 @@ const ReportScreen = () => {
               )
             }
           >
-            <LucideMessageCircleMore size={20} className="text-white" />
+            <LucideMessageCircleMore className="text-white" color="#ffffff" />
 
             <Text className="text-center text-white">Message</Text>
           </Button>
@@ -164,4 +167,4 @@ const ReportScreen = () => {
   );
 };
 
-export { ReportScreen };
+export { ReportTypeScreen };
