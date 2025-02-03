@@ -9,10 +9,8 @@ import "nativewind";
 
 import { TabIconBell } from "~/components/icons/tab-icon-bell";
 import { TabIconCircleAlert } from "~/components/icons/tab-icon-circle-alert";
-import { TabIconHistory } from "~/components/icons/tab-icon-history";
 import { TabIconHome } from "~/components/icons/tab-icon-home";
 import { TabIconMenu } from "~/components/icons/tab-icon-menu";
-import { ActivitiesScreen } from "~/screens/user/user-tab/activities";
 import { HomeScreen } from "~/screens/user/user-tab/home";
 import { MenuScreen } from "~/screens/user/user-tab/menu";
 import { NotificationsScreen } from "~/screens/user/user-tab/notifications";
@@ -46,11 +44,6 @@ const UserTab = () => {
         name="Home"
         component={HomeScreen}
         options={{ tabBarIcon: TabIconHome }}
-      />
-      <Tab.Screen
-        name="Activities"
-        component={ActivitiesScreen}
-        options={{ tabBarIcon: TabIconHistory }}
       />
       <Tab.Screen
         name="Report"

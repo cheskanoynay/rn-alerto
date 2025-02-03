@@ -1,6 +1,6 @@
 import React from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
-import { ChevronRight, History } from "lucide-react-native";
+import { LucideChevronRight } from "lucide-react-native";
 import { Pressable, Text, View } from "react-native";
 
 import { Button } from "~/components/button";
@@ -24,14 +24,7 @@ const MenuScreen = () => {
 
   return (
     <UserLayout className="gap-4 p-4" title="Menu">
-      <Pressable
-        className="h-20 flex-row items-center justify-between gap-4 rounded-2xl border border-gray-300 p-2 active:opacity-50"
-        onPress={() =>
-          navigation.navigate("UserStack", {
-            screen: "Profile",
-          })
-        }
-      >
+      <Pressable className="h-20 flex-row items-center justify-between gap-4 rounded-2xl border border-gray-300 p-2 active:opacity-50">
         <View className="flex-row items-center gap-4">
           <View className="h-14 w-14 items-center justify-center rounded-full bg-gray-300">
             <Text>ST</Text>
@@ -43,27 +36,14 @@ const MenuScreen = () => {
           </View>
         </View>
 
-        <ChevronRight />
+        <LucideChevronRight />
       </Pressable>
 
       <View className="flex-1 justify-end">
-        <Pressable
-          className="rounded-2xl border border-gray-300 bg-white p-2 active:opacity-50"
-          onPress={() =>
-            navigation.navigate("UserStack", {
-              screen: "Activities",
-            })
-          }
-        >
-          <History />
-
-          <Text>Recent Activities</Text>
-        </Pressable>
+        <Button loading={loading} onPress={handleLogout}>
+          Logout
+        </Button>
       </View>
-
-      <Button loading={loading} onPress={handleLogout}>
-        Logout
-      </Button>
     </UserLayout>
   );
 };

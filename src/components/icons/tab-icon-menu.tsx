@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu } from "lucide-react-native";
+import { LucideMenu } from "lucide-react-native";
 
 interface TabIconMenuProps {
   focused: boolean;
@@ -11,7 +11,7 @@ const TabIconMenu = (props: TabIconMenuProps) => {
   const { focused } = props;
   console.log(focused);
 
-  return <Menu color={focused ? "#ca3433" : "#000000"} />;
+  return <LucideMenu color={focused ? "#ca3433" : "#000000"} />;
 };
 
 export { TabIconMenu };

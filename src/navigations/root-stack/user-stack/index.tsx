@@ -11,10 +11,12 @@ import {
 } from "@react-navigation/stack";
 
 import { ResponderTypeSchema } from "~/schema/user";
+import { ActivitiesScreen } from "~/screens/user/activities";
 import { AudioCallScreen } from "~/screens/user/audio-call";
 import { LoginScreen } from "~/screens/user/login";
 import { MessagesScreen } from "~/screens/user/messages";
 import { PreRegistrationScreen } from "~/screens/user/pre-registration";
+import { ProfileScreen } from "~/screens/user/profile";
 import { RegistrationScreen } from "~/screens/user/registration";
 import { TermsOfServiceScreen } from "~/screens/user/terms-of-service";
 import { VideoCallScreen } from "~/screens/user/video-call";
@@ -31,6 +33,8 @@ export type UserStackParamList = {
   Messages: { id: string; type: Exclude<ResponderTypeSchema, ""> };
   VideoCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
   AudioCall: { id: string; type: Exclude<ResponderTypeSchema, ""> };
+  Profile: undefined;
+  Activities: undefined;
 };
 export type UserStackScreenProps<T extends keyof UserStackParamList> =
   CompositeScreenProps<
@@ -73,6 +77,8 @@ const UserStack = () => {
       <Stack.Screen name="Messages" component={MessagesScreen} />
       <Stack.Screen name="VideoCall" component={VideoCallScreen} />
       <Stack.Screen name="AudioCall" component={AudioCallScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Activities" component={ActivitiesScreen} />
     </Stack.Navigator>
   );
 };
