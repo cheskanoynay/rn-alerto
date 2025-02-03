@@ -9,7 +9,6 @@ import {
   LucideShieldPlus,
   LucideSiren,
   LucideVolume2,
-  LucideX,
 } from "lucide-react-native";
 import { Pressable, Text, View } from "react-native";
 import { useMicrophonePermission } from "react-native-vision-camera";
@@ -21,14 +20,12 @@ const reportText = {
   police: "PNP",
   medical: "LDRRMO",
   fire: "BFP",
-  "": "",
 };
 
 const reportIcon = {
   police: LucideSiren,
   medical: LucideShieldPlus,
   fire: LucideFlame,
-  "": LucideX,
 };
 
 const AudioCallScreen = () => {

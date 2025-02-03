@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
   CompositeScreenProps,
+  NavigatorScreenParams,
   StackActions,
   useNavigation,
 } from "@react-navigation/native";
@@ -12,21 +13,21 @@ import {
 import { ResponderHomeScreen } from "~/screens/responder-stack/home";
 import { LoginScreen } from "~/screens/responder-stack/login";
 import { MessagesScreen } from "~/screens/responder-stack/messages";
-import { NotificationsScreen } from "~/screens/responder-stack/notifications";
+import { NotificationsScreen } from "~/screens/responder-stack/responder-tab/notifications";
 import { ProfileScreen } from "~/screens/responder-stack/profile";
 import { TermsOfServiceScreen } from "~/screens/responder-stack/terms-of-service";
 import { useAppSelector } from "~/store";
 import { RootStackParamList, RootStackScreenProps } from "..";
+import { ResponderTab, ResponderTabParamList } from "./responder-tab";
 
 export type ResponderStackParamList = {
-  Home: undefined;
+  ResponderTab: NavigatorScreenParams<ResponderTabParamList>;
   Login: undefined;
   Messages: { id: string };
   TermsOfService: undefined;
   Profile: undefined;
-  Notifications: undefined;
 };
-export type ResponderStackSreenProps<T extends keyof ResponderStackParamList> =
+export type ResponderStackScreenProps<T extends keyof ResponderStackParamList> =
   CompositeScreenProps<
     StackScreenProps<ResponderStackParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
@@ -55,9 +56,8 @@ const ResponderStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {userData ? (
         <>
-          <Stack.Screen name="Home" component={ResponderHomeScreen} />
+          <Stack.Screen name="ResponderTab" component={ResponderTab} />
           <Stack.Screen name="Messages" component={MessagesScreen} />
-          <Stack.Screen name="Notifications" component={NotificationsScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
         </>
       ) : (

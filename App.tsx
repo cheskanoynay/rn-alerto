@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { PortalHost } from "@rn-primitives/portal";
 import { request } from "react-native-permissions";
 
 import { Wrapper } from "~/components/wrapper";
@@ -39,6 +40,8 @@ const App = () => {
     <Providers>
       <Wrapper>
         <Navigations />
+
+        <PortalHost />
       </Wrapper>
     </Providers>
   );

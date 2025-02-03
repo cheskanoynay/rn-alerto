@@ -3,7 +3,7 @@ import { useRoute } from "@react-navigation/native";
 import _ from "lodash";
 import { LucidePaperclip, LucideSend } from "lucide-react-native";
 import { remapProps } from "nativewind";
-import { Alert, TouchableOpacity, View } from "react-native";
+import { Alert, Image, TouchableOpacity, View } from "react-native";
 import { GiftedChat, IMessage, Send } from "react-native-gifted-chat";
 
 import { UserLayout } from "~/components/layout/user-layout";
@@ -22,7 +22,12 @@ const reportText = {
   police: "PNP",
   medical: "LDRRMO",
   fire: "BFP",
-  "": "",
+};
+
+const reportImage = {
+  police: require("~/assets/images/pnp.png"),
+  medical: require("~/assets/images/ndrrmc.png"),
+  fire: require("~/assets/images/bfp.png"),
 };
 
 const RemappedSend = remapProps(Send, {
@@ -111,6 +116,7 @@ const MessagesScreen = () => {
       className="flex-1"
       title={`${reportText[type]} Chat Report`}
       hideProfile
+      leftComponent={<Image source={reportImage[type]} className="h-10 w-10" />}
     >
       <GiftedChat
         messages={parsedMessages}

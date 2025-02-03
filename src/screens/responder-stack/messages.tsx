@@ -12,7 +12,7 @@ import {
   getMessagesByRealtime,
   getUsersByRealtime,
 } from "~/lib/firebase/firestore";
-import { UserStackScreenProps } from "~/navigations/root-stack/user-stack";
+import { ResponderStackScreenProps } from "~/navigations/root-stack/responder-stack";
 import { MessageSchema } from "~/schema/message";
 import { UserSchema } from "~/schema/user";
 import { useAppSelector } from "~/store";
@@ -29,7 +29,7 @@ const MessagesScreen = () => {
 
   const { userData } = useAppSelector((state) => state.user);
 
-  const { params } = useRoute<UserStackScreenProps<"Messages">["route"]>();
+  const { params } = useRoute<ResponderStackScreenProps<"Messages">["route"]>();
   const { id } = params;
 
   const parsedMessages = _.sortBy(
@@ -100,7 +100,7 @@ const MessagesScreen = () => {
   }, [messages]);
 
   return (
-    <ResponderLayout className="flex-1">
+    <ResponderLayout className="flex-1" hideProfile>
       <GiftedChat
         messages={parsedMessages}
         onSend={handleSendMessage}

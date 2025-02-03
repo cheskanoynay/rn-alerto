@@ -43,7 +43,7 @@ const InputDatePicker = (props: InputDatePickerProps) => {
         <View className="overflow-hidden rounded-2xl">
           <Pressable
             className={cn(
-              "flex h-12 flex-row items-center rounded-2xl border border-gray-300 px-4",
+              "flex h-16 flex-row items-center rounded-2xl border border-gray-300 bg-white px-4",
               !!Icon && "pl-10",
               className,
             )}

@@ -100,35 +100,37 @@ const AddRelativesScreen = () => {
         </ScrollView>
       )}
 
-      <Modal isVisible={isVisible.length > 0}>
-        <View className="gap-4 rounded-2xl bg-white p-4">
-          <Text>What's your relationship with this relative?</Text>
+      {isVisible.length > 0 && (
+        <Modal isVisible={isVisible.length > 0}>
+          <View className="gap-4 rounded-2xl bg-white p-4">
+            <Text>What's your relationship with this relative?</Text>
 
-          <Input
-            placeholder="Relationship..."
-            value={relationship}
-            onChangeText={setRelationship}
-          />
+            <Input
+              placeholder="Relationship..."
+              value={relationship}
+              onChangeText={setRelationship}
+            />
 
-          <View className="flex-row gap-2">
-            <Button
-              wrapperClassName="flex-1"
-              onPress={() => setIsVisible("")}
-              disabled={saving}
-            >
-              Cancel
-            </Button>
+            <View className="flex-row gap-2">
+              <Button
+                wrapperClassName="flex-1"
+                onPress={() => setIsVisible("")}
+                disabled={saving}
+              >
+                Cancel
+              </Button>
 
-            <Button
-              wrapperClassName="flex-1"
-              onPress={() => handleAddRelative(isVisible)}
-              loading={saving}
-            >
-              Save
-            </Button>
+              <Button
+                wrapperClassName="flex-1"
+                onPress={() => handleAddRelative(isVisible)}
+                loading={saving}
+              >
+                Save
+              </Button>
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
+      )}
     </UserLayout>
   );
 };
