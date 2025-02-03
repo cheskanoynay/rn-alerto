@@ -11,16 +11,18 @@ import {
 } from "@react-navigation/stack";
 
 import { ResponderTypeSchema } from "~/schema/user";
-import { ActivitiesScreen } from "~/screens/user/activities";
-import { AudioCallScreen } from "~/screens/user/audio-call";
-import { LoginScreen } from "~/screens/user/login";
-import { MessagesScreen } from "~/screens/user/messages";
-import { PreRegistrationScreen } from "~/screens/user/pre-registration";
-import { ProfileScreen } from "~/screens/user/profile";
-import { RegistrationScreen } from "~/screens/user/registration";
-import { ReportTypeScreen } from "~/screens/user/report-type";
-import { TermsOfServiceScreen } from "~/screens/user/terms-of-service";
-import { VideoCallScreen } from "~/screens/user/video-call";
+import { ActivitiesScreen } from "~/screens/user-stack/activities";
+import { AddRelativesScreen } from "~/screens/user-stack/add-relatives";
+import { AudioCallScreen } from "~/screens/user-stack/audio-call";
+import { LoginScreen } from "~/screens/user-stack/login";
+import { MessagesScreen } from "~/screens/user-stack/messages";
+import { PreRegistrationScreen } from "~/screens/user-stack/pre-registration";
+import { ProfileScreen } from "~/screens/user-stack/profile";
+import { RegistrationScreen } from "~/screens/user-stack/registration";
+import { RelativesScreen } from "~/screens/user-stack/relatives";
+import { ReportTypeScreen } from "~/screens/user-stack/report-type";
+import { TermsOfServiceScreen } from "~/screens/user-stack/terms-of-service";
+import { VideoCallScreen } from "~/screens/user-stack/video-call";
 import { useAppSelector } from "~/store";
 import { RootStackParamList, RootStackScreenProps } from "..";
 import { UserTab, UserTabParamList } from "./user-tab";
@@ -37,6 +39,8 @@ export type UserStackParamList = {
   Profile: undefined;
   Activities: undefined;
   ReportType: { type: Exclude<ResponderTypeSchema, ""> };
+  Relatives: undefined;
+  AddRelatives: undefined;
 };
 export type UserStackScreenProps<T extends keyof UserStackParamList> =
   CompositeScreenProps<
@@ -82,6 +86,8 @@ const UserStack = () => {
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Activities" component={ActivitiesScreen} />
       <Stack.Screen name="ReportType" component={ReportTypeScreen} />
+      <Stack.Screen name="Relatives" component={RelativesScreen} />
+      <Stack.Screen name="AddRelatives" component={AddRelativesScreen} />
     </Stack.Navigator>
   );
 };

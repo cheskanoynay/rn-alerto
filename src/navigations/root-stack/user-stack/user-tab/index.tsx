@@ -11,10 +11,10 @@ import { TabIconBell } from "~/components/icons/tab-icon-bell";
 import { TabIconCircleAlert } from "~/components/icons/tab-icon-circle-alert";
 import { TabIconHome } from "~/components/icons/tab-icon-home";
 import { TabIconMenu } from "~/components/icons/tab-icon-menu";
-import { HomeScreen } from "~/screens/user/user-tab/home";
-import { MenuScreen } from "~/screens/user/user-tab/menu";
-import { NotificationsScreen } from "~/screens/user/user-tab/notifications";
-import { ReportScreen } from "~/screens/user/user-tab/report";
+import { HomeScreen } from "~/screens/user-stack/user-tab/home";
+import { MenuScreen } from "~/screens/user-stack/user-tab/menu";
+import { NotificationsScreen } from "~/screens/user-stack/user-tab/notifications";
+import { ReportScreen } from "~/screens/user-stack/user-tab/report";
 import { UserStackParamList, UserStackScreenProps } from "..";
 
 export type UserTabParamList = {

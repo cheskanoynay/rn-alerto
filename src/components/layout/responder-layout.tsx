@@ -75,7 +75,7 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
                 <RemappedMenuOption
                   className="flex-row items-center gap-2 px-3"
                   onSelect={() =>
-                    navigation.navigate("Responders", { screen: "Profile" })
+                    navigation.navigate("ResponderStack", { screen: "Profile" })
                   }
                 >
                   <LucideUser2 size={16} color="#000000" />
@@ -85,7 +85,7 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
                 <RemappedMenuOption
                   className="flex-row items-center gap-2 px-3"
                   onSelect={() =>
-                    navigation.navigate("Responders", {
+                    navigation.navigate("ResponderStack", {
                       screen: "Notifications",
                     })
                   }
@@ -97,7 +97,7 @@ const ResponderLayout = (props: ResponderLayoutProps) => {
                 <RemappedMenuOption
                   className="flex-row items-center gap-2 px-3"
                   onSelect={() =>
-                    navigation.navigate("Responders", {
+                    navigation.navigate("ResponderStack", {
                       screen: "TermsOfService",
                     })
                   }

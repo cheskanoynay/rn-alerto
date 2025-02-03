@@ -38,7 +38,7 @@ const ResponderHomeScreen = () => {
   const handleRedirect = (id: string, type: ReportTypeSchema) => {
     switch (type) {
       case "message": {
-        navigation.navigate("Responders", {
+        navigation.navigate("ResponderStack", {
           screen: "Messages",
           params: { id },
         });

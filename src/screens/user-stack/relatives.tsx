@@ -74,7 +74,7 @@ const RelativesScreen = () => {
       <View className="p-4">
         <Button
           onPress={() =>
-            navigation.navigate("User", { screen: "AddRelatives" })
+            navigation.navigate("UserStack", { screen: "AddRelatives" })
           }
         >
           Add Relative

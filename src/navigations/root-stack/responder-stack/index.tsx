@@ -9,14 +9,14 @@ import {
   StackScreenProps,
 } from "@react-navigation/stack";
 
-import { ResponderHomeScreen } from "~/screens/responder/home";
-import { LoginScreen } from "~/screens/responder/login";
-import { MessagesScreen } from "~/screens/responder/messages";
-import { NotificationsScreen } from "~/screens/responder/notifications";
-import { ProfileScreen } from "~/screens/responder/profile";
-import { TermsOfServiceScreen } from "~/screens/responder/terms-of-service";
+import { ResponderHomeScreen } from "~/screens/responder-stack/home";
+import { LoginScreen } from "~/screens/responder-stack/login";
+import { MessagesScreen } from "~/screens/responder-stack/messages";
+import { NotificationsScreen } from "~/screens/responder-stack/notifications";
+import { ProfileScreen } from "~/screens/responder-stack/profile";
+import { TermsOfServiceScreen } from "~/screens/responder-stack/terms-of-service";
 import { useAppSelector } from "~/store";
-import { RootStackParamList, RootStackScreenProps } from "./root-stack";
+import { RootStackParamList, RootStackScreenProps } from "..";
 
 export type ResponderStackParamList = {
   Home: undefined;
@@ -47,7 +47,7 @@ const ResponderStack = () => {
   useEffect(() => {
     if (userData && userData.role !== "responder") {
       StackActions.popToTop();
-      navigation.navigate("User", { screen: "Login" });
+      navigation.navigate("UserStack", { screen: "Login" });
     }
   }, [navigation, userData]);
 
